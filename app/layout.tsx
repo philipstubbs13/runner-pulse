@@ -6,7 +6,6 @@ import { GlobalProvider } from "@/context/global-context/GlobalContext";
 import clsx from "clsx";
 import "photoswipe/dist/photoswipe.css";
 import { ReactNode } from "react";
-import Head from "next/head";
 
 interface IProps {
   children: ReactNode;
@@ -25,14 +24,6 @@ export default function RootLayout(props: Readonly<IProps>) {
     <AuthProvider>
       <GlobalProvider>
         <html lang="en" className={"h-full"}>
-          <Head>
-            <link
-              rel="icon"
-              href="/icon?<generated>"
-              type="image/svg"
-              sizes="32x32"
-            />
-          </Head>
           <body className={clsx(inter.className, "h-full")}>
             {props.dashboard}
           </body>

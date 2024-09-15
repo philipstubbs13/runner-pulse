@@ -16,6 +16,10 @@ import {
 } from "@/components/tabs/Tabs.constants";
 
 interface IProps {
+  /**
+   * The tab identifier used to determine the card's styling and content.
+   * It should match one of the predefined Tab constants.
+   */
   tab: Tab;
 }
 

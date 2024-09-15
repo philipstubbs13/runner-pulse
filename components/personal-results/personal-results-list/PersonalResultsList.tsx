@@ -15,6 +15,9 @@ import { AddResultDialog } from "@/components/personal-results/add-result-dialog
 import { IPersonalResult } from "@/components/personal-results/PersonalResults.types";
 
 interface IProps {
+  /**
+   * An array of objects representing the personal race results to be displayed in the table.
+   */
   results: IPersonalResult[];
 }
 

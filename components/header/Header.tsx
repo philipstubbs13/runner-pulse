@@ -6,6 +6,8 @@ import { signOut } from "next-auth/react";
 import { getTitleColor } from "@/utils/getTitleColor";
 import { useGlobalContext } from "@/context/global-context/GlobalContext";
 import { Tab } from "@/components/tabs/Tabs.constants";
+import { AppLogo } from "../app-logo/AppLogo";
+import clsx from "clsx";
 
 export const Header = () => {
   const { activeTab, updateActiveTab } = useGlobalContext();
@@ -17,13 +19,17 @@ export const Header = () => {
 
   return (
     <div className="flex justify-between items-center mb-6">
-      <h1
-        className={`text-4xl font-bold transition-colors duration-300 ${getTitleColor(
-          activeTab
-        )}`}
+      <div
+        className={clsx({
+          [getTitleColor(activeTab)]: true,
+          "flex items-center": true,
+        })}
       >
-        Runner Pulse
-      </h1>
+        <AppLogo />
+        <h1 className={"text-4xl font-bold transition-colors duration-300"}>
+          Runner Pulse
+        </h1>
+      </div>
       <Button
         onClick={() => handleLogout()}
         variant="outline"

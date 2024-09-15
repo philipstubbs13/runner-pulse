@@ -8,6 +8,7 @@ import { useState } from "react";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -21,6 +22,10 @@ import {
 } from "@/components/personal-results/PersonalResults.constants";
 import { SubmitButton } from "@/components/buttons/submit-button/SubmitButton";
 import { Tab } from "@/components/tabs/Tabs.constants";
+import {
+  getHoursValues,
+  getMinutesOrSecondsValues,
+} from "@/utils/getTimeValues";
 
 interface IProps {
   result?: IPersonalResult;
@@ -33,6 +38,9 @@ export const AddResultDialog = (props: IProps) => {
   const time = props.result?.time || "";
   const [hours, minutes, seconds] = time?.split(":");
   const resultIdToEdit = props.result?.id || "";
+  const hoursValues = getHoursValues();
+  const minutesValues = getMinutesOrSecondsValues();
+  const secondsValues = getMinutesOrSecondsValues();
 
   const onSubmit = async (formData: FormData) => {
     if (!isEditingResult) {
@@ -111,9 +119,13 @@ export const AddResultDialog = (props: IProps) => {
               />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="00">00</SelectItem>
-              <SelectItem value="01">01</SelectItem>
-              <SelectItem value="02">02</SelectItem>
+              <SelectGroup>
+                {hoursValues.map((hourValue) => (
+                  <SelectItem value={hourValue} key={hourValue}>
+                    {hourValue}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
             </SelectContent>
           </Select>
           <Select name={PersonalResultTime.Minutes} defaultValue={minutes}>
@@ -125,9 +137,13 @@ export const AddResultDialog = (props: IProps) => {
               />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="00">00</SelectItem>
-              <SelectItem value="01">01</SelectItem>
-              <SelectItem value="02">02</SelectItem>
+              <SelectGroup>
+                {minutesValues.map((minuteValue) => (
+                  <SelectItem value={minuteValue} key={minuteValue}>
+                    {minuteValue}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>
@@ -140,9 +156,13 @@ export const AddResultDialog = (props: IProps) => {
             />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="00">00</SelectItem>
-            <SelectItem value="01">01</SelectItem>
-            <SelectItem value="02">02</SelectItem>
+            <SelectGroup>
+              {secondsValues.map((secondsValue) => (
+                <SelectItem value={secondsValue} key={secondsValue}>
+                  {secondsValue}
+                </SelectItem>
+              ))}
+            </SelectGroup>
           </SelectContent>
         </Select>
         <SubmitButton tab={Tab.Results} />

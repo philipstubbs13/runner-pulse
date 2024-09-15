@@ -14,6 +14,9 @@ import { IUpcomingRace } from "@/components/upcoming-races/UpcomingRaces.types";
 import { Routes } from "@/utils/router/Routes.constants";
 
 interface IProps {
+  /**
+   * An array of objects representing the upcoming races to be displayed in the table.
+   */
   races: IUpcomingRace[];
 }
 

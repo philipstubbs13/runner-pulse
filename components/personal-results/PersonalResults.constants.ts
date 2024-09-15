@@ -1,7 +1,7 @@
 export enum PersonalResultTime {
   Hours = "hours",
   Minutes = "minutes",
-  Seconds = "second",
+  Seconds = "seconds",
 }
 
 export const personalResultTimePlaceholders: Record<

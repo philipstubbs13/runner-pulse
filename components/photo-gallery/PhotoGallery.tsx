@@ -11,12 +11,10 @@ export const PhotoGallery = async () => {
 
   return (
     <div className="space-y-4">
-      <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        {/* {photos.map((photo) => (
+      {/* {photos.map((photo) => (
           <PhotoGalleryItem key={photo.id} item={photo} />
         ))} */}
-        <PhotoList photos={photos} />
-      </div>
+      <PhotoList photos={photos} />
       <AddPhotoDialog />
     </div>
   );

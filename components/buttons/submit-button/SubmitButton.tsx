@@ -10,6 +10,10 @@ import clsx from "clsx";
 import { useFormStatus } from "react-dom";
 
 interface IProps {
+  /**
+   * This prop determines the current active tab, used to dynamically set the button's background and hover colors.
+   * The tab must be one of the predefined Tab constants.
+   */
   tab: Tab;
 }
 

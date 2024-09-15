@@ -27,7 +27,8 @@ export const defaultContextValues = {
   updateActiveTab: () => {},
 };
 
-const GlobalContext = createContext<IGlobalContext>(defaultContextValues);
+export const GlobalContext =
+  createContext<IGlobalContext>(defaultContextValues);
 
 export const GlobalProvider = (
   props: PropsWithChildren<IGlobalProviderProps>

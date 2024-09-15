@@ -8,7 +8,7 @@ export interface IUpcomingRace {
     race_id: string;
     race_event_days?: [
       {
-        start_date: 0;
+        start_date: string;
       }
     ];
   };

@@ -18,6 +18,8 @@ async function addRaceResult(formData: FormData): Promise<void> {
   const seconds = formData.get("seconds");
   const time = `${hours}:${minutes}:${seconds}`;
 
+  console.log(formData.get("seconds"), "seconds");
+
   const raceResultData = {
     date: formData.get("date") as string,
     race: formData.get("race") as string,

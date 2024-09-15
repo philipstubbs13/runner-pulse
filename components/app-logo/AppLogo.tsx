@@ -1,4 +1,9 @@
 interface IProps {
+  /**
+   * A string that sets the background color of the logo.
+   * By default, no background color is applied,
+   * allowing the logo to render with a transparent background.
+   */
   backgroundColor?: string;
 }
 
