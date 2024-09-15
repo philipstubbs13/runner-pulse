@@ -12,6 +12,10 @@ import { SubmitButton } from "@/components/buttons/submit-button/SubmitButton";
 import { Tab } from "@/components/tabs/Tabs.constants";
 
 interface IProps {
+  /**
+   * An object used to prepopulate the dialog with existing photo data if editing.
+   * If not provided, the dialog will be used for uploading a new photo.
+   */
   galleryItem?: IPhotoGalleryItem;
 }
 

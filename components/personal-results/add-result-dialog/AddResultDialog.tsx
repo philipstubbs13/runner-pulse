@@ -28,6 +28,10 @@ import {
 } from "@/utils/getTimeValues";
 
 interface IProps {
+  /**
+   * An object used to prepopulate the dialog with existing result data if editing.
+   * If not provided, the dialog will be used for adding a new result.
+   */
   result?: IPersonalResult;
 }
 

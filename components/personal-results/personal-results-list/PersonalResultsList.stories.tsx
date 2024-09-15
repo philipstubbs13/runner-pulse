@@ -46,3 +46,9 @@ export const Basic: Story = {
     results: resultsMock,
   },
 };
+
+export const EmptyList: Story = {
+  args: {
+    results: [],
+  },
+};

@@ -16,7 +16,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const photossMock: IPhotoGalleryItem[] = [
+const photosMock: IPhotoGalleryItem[] = [
   {
     caption: "My first marathon",
     id: "1",
@@ -36,6 +36,12 @@ const photossMock: IPhotoGalleryItem[] = [
 
 export const Basic: Story = {
   args: {
-    photos: photossMock,
+    photos: photosMock,
+  },
+};
+
+export const EmptyList: Story = {
+  args: {
+    photos: [],
   },
 };
