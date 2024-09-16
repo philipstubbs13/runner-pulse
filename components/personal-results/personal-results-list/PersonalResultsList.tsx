@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Trash2 } from "lucide-react";
+import { Trash2, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import deleteRaceResult from "@/app/actions/deleteRaceResult";
 import { AddResultDialog } from "@/components/personal-results/add-result-dialog/AddResultDialog";

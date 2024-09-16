@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowLeft, MapPin } from "lucide-react";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface IProps {
   params: {
@@ -20,6 +21,10 @@ export default async function RaceDetailsPage(props: IProps) {
     `https://runsignup.com/rest/race/${props.params.id}?format=json`
   );
   const response = await data.json();
+
+  if (response.error) {
+    notFound();
+  }
 
   return (
     <div className="container mx-auto p-4 bg-gradient-to-br from-green-100 to-blue-100 min-h-screen">
