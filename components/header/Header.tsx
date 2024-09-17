@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { LogOut, Settings } from "lucide-react";
+import { LogOut, Route, Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useGlobalContext } from "@/context/global-context/GlobalContext";
 import { Tab } from "@/components/tabs/Tabs.constants";
@@ -72,12 +72,20 @@ export const Header = () => {
                 </div>
               </div>
               <Button
-                onClick={() => router.push(Routes.Settings)}
+                onClick={() => router.push(Routes.ManagePhotos)}
                 variant="outline"
                 className="w-full mb-2"
               >
                 <Settings className="mr-2 h-4 w-4" />
                 Manage Photos
+              </Button>
+              <Button
+                onClick={() => router.push(Routes.ManageRaceDistances)}
+                variant="outline"
+                className="w-full mb-2"
+              >
+                <Route className="mr-2 h-4 w-4" />
+                Manage Race Distances
               </Button>
               <Button
                 onClick={handleLogout}

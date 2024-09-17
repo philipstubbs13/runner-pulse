@@ -20,21 +20,21 @@ type Story = StoryObj<typeof meta>;
 const resultsMock: IPersonalResult[] = [
   {
     date: new Date("09/01/2024"),
-    distance: 9.3,
+    raceDistance: "15k",
     id: "1",
     race: "Heart of the City",
     time: "01:05:38",
   },
   {
     date: new Date("09/14/2024"),
-    distance: 6.2,
+    raceDistance: "10k",
     id: "2",
     race: "Circle the Lake",
     time: "00:42:15",
   },
   {
     date: new Date("10/01/2022"),
-    distance: 26.3,
+    raceDistance: "Marathon",
     id: "3",
     race: "Twin Cities Marathon",
     time: "03:30:15",
@@ -43,12 +43,14 @@ const resultsMock: IPersonalResult[] = [
 
 export const Basic: Story = {
   args: {
+    distances: [],
     results: resultsMock,
   },
 };
 
 export const EmptyList: Story = {
   args: {
+    distances: [],
     results: [],
   },
 };

@@ -29,7 +29,7 @@ export const PhotoGallery = async () => {
       )}
       <div className="flex items-center gap-4">
         <AddPhotoDialog />
-        <Link href={Routes.Settings}>
+        <Link href={Routes.ManagePhotos}>
           <Button
             variant="outline"
             className="border-pink-500 text-pink-600 hover:bg-pink-100"

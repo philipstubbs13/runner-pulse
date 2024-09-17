@@ -21,7 +21,6 @@ async function addRaceResult(formData: FormData): Promise<void> {
   const raceResultData = {
     date: formData.get("date") as string,
     race: formData.get("race") as string,
-    distance: formData.get("distance") as string,
     time,
   };
 
@@ -29,7 +28,7 @@ async function addRaceResult(formData: FormData): Promise<void> {
     data: {
       date: new Date(raceResultData.date).toISOString(),
       race: raceResultData.race,
-      distance: parseFloat(raceResultData.distance),
+      raceDistance: formData.get("distance") as string,
       time: raceResultData.time,
       userId,
     },

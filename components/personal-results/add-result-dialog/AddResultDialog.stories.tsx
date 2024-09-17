@@ -24,9 +24,9 @@ export const IsEditingResult: Story = {
   args: {
     result: {
       date: new Date("10/01/2022"),
-      distance: 26.3,
       id: "3",
       race: "Twin Cities Marathon",
+      raceDistance: "Marathon",
       time: "03:30:15",
     },
   },

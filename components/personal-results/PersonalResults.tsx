@@ -3,8 +3,11 @@ import { db } from "@/lib/db";
 import { getSessionUser } from "@/utils/getSessionUser";
 import { PersonalResultsList } from "./personal-results-list/PersonalResultsList";
 import { NoResults } from "@/components/no-results/NoResults";
-import { Trophy } from "lucide-react";
+import { Route, Trophy } from "lucide-react";
 import { Tab } from "@/components/tabs/Tabs.constants";
+import Link from "next/link";
+import { Routes } from "@/utils/router/Routes.constants";
+import { Button } from "@/components/ui/button";
 
 export const PersonalResults = async () => {
   const sessionUser = await getSessionUser();
@@ -13,11 +16,16 @@ export const PersonalResults = async () => {
       userId: sessionUser?.userId,
     },
   });
+  const distances = await db.raceDistance.findMany({
+    where: { userId: sessionUser?.userId },
+  });
   const hasResults = results.length > 0;
 
   return (
     <div className="space-y-4">
-      {hasResults && <PersonalResultsList results={results} />}
+      {hasResults && (
+        <PersonalResultsList distances={distances} results={results} />
+      )}
       {!hasResults && (
         <NoResults
           Icon={Trophy}
@@ -26,7 +34,18 @@ export const PersonalResults = async () => {
           title="No results yet"
         />
       )}
-      <AddResultDialog />
+      <div className="flex items-center gap-4">
+        <AddResultDialog distances={distances} />
+        <Link href={Routes.ManageRaceDistances}>
+          <Button
+            variant="outline"
+            className="border-blue-500 text-blue-600 hover:bg-blue-100"
+          >
+            <Route className="mr-2 h-4 w-4" />
+            Manage Race Distances
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

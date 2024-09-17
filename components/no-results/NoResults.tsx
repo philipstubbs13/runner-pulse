@@ -15,7 +15,7 @@ interface IProps {
   /**
    * Indicates which tab is active; can be either `Tab.Results` or `Tab.Gallery`.
    */
-  tab: Tab.Results | Tab.Gallery;
+  tab: Tab.Results | Tab.Gallery | Tab.Settings;
   /**
    * The title or heading for the no results message.
    */
@@ -30,21 +30,23 @@ export const NoResults = (props: IProps) => {
       <div
         className={clsx({
           "text-center py-10 rounded-lg w-full": true,
-          "bg-blue-50": props.tab === Tab.Results,
+          "bg-blue-50": props.tab === Tab.Results || props.tab === Tab.Settings,
           "bg-pink-50": props.tab === Tab.Gallery,
         })}
       >
         <Icon
           className={clsx({
             "mx-auto h-12 w-12 mb-4": true,
-            "text-blue-300": props.tab === Tab.Results,
+            "text-blue-300":
+              props.tab === Tab.Results || props.tab === Tab.Settings,
             "text-pink-300": props.tab === Tab.Gallery,
           })}
         />
         <h3
           className={clsx({
             "text-lg font-semibold mb-2": true,
-            "text-blue-700": props.tab === Tab.Results,
+            "text-blue-700":
+              props.tab === Tab.Results || props.tab === Tab.Settings,
             "text-pink-700": props.tab === Tab.Gallery,
           })}
         >
@@ -52,7 +54,8 @@ export const NoResults = (props: IProps) => {
         </h3>
         <p
           className={clsx({
-            "text-blue-600": props.tab === Tab.Results,
+            "text-blue-600":
+              props.tab === Tab.Results || props.tab === Tab.Settings,
             "text-pink-600": props.tab === Tab.Gallery,
           })}
         >

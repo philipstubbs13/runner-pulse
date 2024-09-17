@@ -1,6 +1,7 @@
 "use server";
 import { db } from "@/lib/db";
 import { getSessionUser } from "@/utils/getSessionUser";
+import { Routes } from "@/utils/router/Routes.constants";
 import { revalidatePath } from "next/cache";
 
 async function editRaceResult(
@@ -27,25 +28,19 @@ async function editRaceResult(
   const minutes = formData.get("minutes");
   const seconds = formData.get("seconds");
   const time = `${hours}:${minutes}:${seconds}`;
-
-  const raceResultData = {
-    date: formData.get("date") as string,
-    race: formData.get("race") as string,
-    distance: formData.get("distance") as string,
-    time,
-  };
+  const date = formData.get("date") as string;
 
   await db.raceResult.update({
     where: { id: raceResultId },
     data: {
-      date: new Date(raceResultData.date).toISOString(),
-      race: raceResultData.race,
-      distance: parseFloat(raceResultData.distance),
-      time: raceResultData.time,
+      date: new Date(date).toISOString(),
+      race: formData.get("race") as string,
+      raceDistance: formData.get("distance") as string,
+      time,
     },
   });
 
-  revalidatePath("/results", "layout");
+  revalidatePath(Routes.Results, "layout");
 }
 
 export default editRaceResult;

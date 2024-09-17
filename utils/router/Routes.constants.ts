@@ -4,7 +4,8 @@ export enum Routes {
   RaceDetails = "/races/[id]",
   Races = "/races",
   Results = "/results",
-  Settings = "/settings",
+  ManagePhotos = "/settings/manage-photos",
+  ManageRaceDistances = "/settings/race-distances",
 }
 
 export enum RoutesDynamicKey {

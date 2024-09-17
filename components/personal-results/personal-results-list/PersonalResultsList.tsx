@@ -13,12 +13,18 @@ import { Button } from "@/components/ui/button";
 import deleteRaceResult from "@/app/actions/deleteRaceResult";
 import { AddResultDialog } from "@/components/personal-results/add-result-dialog/AddResultDialog";
 import { IPersonalResult } from "@/components/personal-results/PersonalResults.types";
+import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
+import { formatISODate } from "@/utils/formatISODate";
 
 interface IProps {
   /**
    * An array of objects representing the personal race results to be displayed in the table.
    */
   results: IPersonalResult[];
+  /**
+   * List of distances to populate distance dropdown in add result dialog form.
+   */
+  distances: IRaceDistance[];
 }
 
 export const PersonalResultsList = (props: IProps) => {
@@ -29,7 +35,7 @@ export const PersonalResultsList = (props: IProps) => {
           <TableHead className="text-blue-700">Date</TableHead>
           <TableHead className="text-blue-700">Race</TableHead>
           <TableHead className="text-blue-700">Distance</TableHead>
-          <TableHead className="text-blue-700">Time</TableHead>
+          <TableHead className="text-blue-700">Time (HH:MM:SS)</TableHead>
           <TableHead className="text-blue-700"></TableHead>
         </TableRow>
       </TableHeader>
@@ -37,10 +43,10 @@ export const PersonalResultsList = (props: IProps) => {
         {props.results.map((result) => (
           <TableRow key={result.id} className="hover:bg-blue-50">
             <TableCell>
-              {new Intl.DateTimeFormat("en-US").format(result.date)}
+              {result.date && formatISODate(result.date.toISOString())}
             </TableCell>
             <TableCell>{result.race}</TableCell>
-            <TableCell>{result.distance}</TableCell>
+            <TableCell>{result.raceDistance}</TableCell>
             <TableCell>{result.time}</TableCell>
             <TableCell className="flex">
               <Button
@@ -49,7 +55,7 @@ export const PersonalResultsList = (props: IProps) => {
               >
                 <Trash2 />
               </Button>
-              <AddResultDialog result={result} />
+              <AddResultDialog distances={props.distances} result={result} />
             </TableCell>
           </TableRow>
         ))}

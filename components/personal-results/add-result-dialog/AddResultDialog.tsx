@@ -26,6 +26,7 @@ import {
   getHoursValues,
   getMinutesOrSecondsValues,
 } from "@/utils/getTimeValues";
+import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
 
 interface IProps {
   /**
@@ -33,9 +34,14 @@ interface IProps {
    * If not provided, the dialog will be used for adding a new result.
    */
   result?: IPersonalResult;
+  /**
+   * List of distances to populate distance dropdown in add result dialog form.
+   */
+  distances?: IRaceDistance[];
 }
 
 export const AddResultDialog = (props: IProps) => {
+  const { distances = [] } = props;
   const [open, setOpen] = useState<boolean>(false);
   const isEditingResult = props.result;
   const dialogTitle = props.result ? "Edit Result" : "Add New Result";
@@ -103,15 +109,22 @@ export const AddResultDialog = (props: IProps) => {
             required={true}
           />
         </div>
-        <Input
-          className="border-blue-300 focus:border-blue-500"
-          defaultValue={props.result?.distance}
+        <Select
+          defaultValue={props.result?.raceDistance}
           name="distance"
-          placeholder="Distance"
           required={true}
-          step="0.1"
-          type="number"
-        />
+        >
+          <SelectTrigger className="border-blue-300 focus:border-blue-500">
+            <SelectValue placeholder="Select Distance" />
+          </SelectTrigger>
+          <SelectContent className="bg-white">
+            {distances.map((distance) => (
+              <SelectItem key={distance.id} value={distance.distance}>
+                {distance.distance}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         <p className="font-bold pt-3">Finish Time</p>
         <div className="grid grid-cols-2 gap-2">
           <Select name={PersonalResultTime.Hours} defaultValue={hours}>

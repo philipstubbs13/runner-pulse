@@ -36,3 +36,13 @@ export const GalleryTab: Story = {
     title: "No photos yet",
   },
 };
+
+export const SettingsTab: Story = {
+  args: {
+    Icon: Camera,
+    description:
+      "Upload your first running photo to start managing your gallery!",
+    tab: Tab.Settings,
+    title: "No photos yet",
+  },
+};
