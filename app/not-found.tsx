@@ -10,11 +10,11 @@ export default function NotFound() {
         title={"Page Not Found"}
       >
         <p className="text-gray-600 mb-4">
-          Oops! It looks like the page you're looking for doesn't exist or has
-          been removed.
+          Oops! It looks like the page you&apos;re looking for doesn&apos;t
+          exist or has been removed.
         </p>
         <p className="text-gray-600">
-          Don't worry, there are plenty of other things to explore!
+          Don&apos;t worry, there are plenty of other things to explore!
         </p>
       </NotFoundCard>
     </div>

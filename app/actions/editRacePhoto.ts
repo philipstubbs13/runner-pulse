@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 
 async function editRacePhoto(
   racePhotoId: string,
-  formData: FormData
+  caption: string
 ): Promise<void> {
   const sessionUser = await getSessionUser();
 
@@ -27,7 +27,7 @@ async function editRacePhoto(
   await db.racePhoto.update({
     where: { id: racePhotoId },
     data: {
-      caption: formData.get("caption") as string,
+      caption,
     },
   });
 

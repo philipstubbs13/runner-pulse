@@ -27,7 +27,7 @@ export const PhotoGalleryItem = (props: IProps) => {
           {props.item.caption}
         </div>
         <div className="flex">
-          <AddPhotoDialog galleryItem={props.item} />
+          <AddPhotoDialog />
           <Button onClick={() => deleteRacePhoto(props.item.id)}>
             <Trash2 />
           </Button>

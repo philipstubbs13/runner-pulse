@@ -16,8 +16,6 @@ async function addRacePhoto(formData: FormData): Promise<void> {
 
   const imageFile = formData.get("image");
 
-  console.log(typeof imageFile, "typeofImageFile");
-
   if (!imageFile) {
     throw new Error("No photo provided");
   }

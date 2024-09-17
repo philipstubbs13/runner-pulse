@@ -18,13 +18,3 @@ type Story = StoryObj<typeof meta>;
 export const AddPhoto: Story = {
   args: {},
 };
-
-export const IsEditingPhoto: Story = {
-  args: {
-    galleryItem: {
-      caption: "My first marathon",
-      id: "1",
-      image: "profile.jpeg",
-    },
-  },
-};

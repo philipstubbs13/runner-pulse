@@ -1,4 +1,4 @@
-import { ComponentType, JSXElementConstructor } from "react";
+import { ComponentType } from "react";
 import { Tab } from "@/components/tabs/Tabs.constants";
 import clsx from "clsx";
 
@@ -10,6 +10,7 @@ interface IProps {
   /**
    * A React component used as an icon, passed via the `JSXElementConstructor` prop.
    */
+  // eslint-disable-next-line
   Icon: ComponentType<any>;
   /**
    * Indicates which tab is active; can be either `Tab.Results` or `Tab.Gallery`.

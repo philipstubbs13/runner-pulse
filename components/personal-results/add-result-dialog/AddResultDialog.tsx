@@ -122,7 +122,7 @@ export const AddResultDialog = (props: IProps) => {
                 }
               />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectGroup>
                 {hoursValues.map((hourValue) => (
                   <SelectItem value={hourValue} key={hourValue}>
@@ -140,7 +140,7 @@ export const AddResultDialog = (props: IProps) => {
                 }
               />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectGroup>
                 {minutesValues.map((minuteValue) => (
                   <SelectItem value={minuteValue} key={minuteValue}>
@@ -159,7 +159,7 @@ export const AddResultDialog = (props: IProps) => {
               }
             />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white">
             <SelectGroup>
               {secondsValues.map((secondsValue) => (
                 <SelectItem value={secondsValue} key={secondsValue}>

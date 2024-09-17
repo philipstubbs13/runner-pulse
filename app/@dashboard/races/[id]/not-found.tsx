@@ -10,11 +10,11 @@ export default function RaceNotFound() {
         title={"Race Not Found"}
       >
         <p className="text-gray-600 mb-4">
-          Oops! It looks like the race you're looking for doesn't exist or has
-          been removed.
+          Oops! It looks like the race you&apos;re looking for doesn&apos;t
+          exist or has been removed.
         </p>
         <p className="text-gray-600">
-          Don't worry, there are plenty of other races to explore!
+          Don&apos;t worry, there are plenty of other races to explore!
         </p>
       </NotFoundCard>
     </div>

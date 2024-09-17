@@ -23,8 +23,8 @@ export const Basic: Story = {
   args: {
     children: (
       <p className="text-gray-600 mb-4">
-        Oops! It looks like the race you're looking for doesn't exist or has
-        been removed.
+        Oops! It looks like the race you&apos;re looking for doesn&apos;t exist
+        or has been removed.
       </p>
     ),
     title: "Not Found",

@@ -3,8 +3,11 @@ import { AddPhotoDialog } from "./add-photo-dialog/AddPhotoDialog";
 import { getSessionUser } from "@/utils/getSessionUser";
 import { PhotoList } from "./photo-list/PhotoList";
 import { NoResults } from "@/components/no-results/NoResults";
-import { Camera } from "lucide-react";
+import { Camera, Settings } from "lucide-react";
 import { Tab } from "@/components/tabs/Tabs.constants";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { Routes } from "@/utils/router/Routes.constants";
 
 export const PhotoGallery = async () => {
   const sessionUser = await getSessionUser();
@@ -15,9 +18,6 @@ export const PhotoGallery = async () => {
 
   return (
     <div className="space-y-4">
-      {/* {photos.map((photo) => (
-        <PhotoGalleryItem key={photo.id} item={photo} />
-      ))} */}
       {hasPhotos && <PhotoList photos={photos} />}
       {!hasPhotos && (
         <NoResults
@@ -27,7 +27,18 @@ export const PhotoGallery = async () => {
           title="No photos yet"
         />
       )}
-      <AddPhotoDialog />
+      <div className="flex items-center gap-4">
+        <AddPhotoDialog />
+        <Link href={Routes.Settings}>
+          <Button
+            variant="outline"
+            className="border-pink-500 text-pink-600 hover:bg-pink-100"
+          >
+            <Settings className="mr-2 h-4 w-4" />
+            Manage Photos
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

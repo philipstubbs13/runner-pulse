@@ -2,6 +2,7 @@ import React from "react";
 import type { Preview } from "@storybook/react";
 
 import "../app/globals.css";
+import { AuthProvider } from "../components/auth-provider/AuthProvider";
 
 const preview: Preview = {
   parameters: {
@@ -22,7 +23,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <main>
-        <Story />
+        <AuthProvider>
+          <Story />
+        </AuthProvider>
       </main>
     ),
   ],
