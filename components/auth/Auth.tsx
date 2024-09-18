@@ -18,6 +18,7 @@ import {
 import { useEffect, useState } from "react";
 import { AppLogo } from "@/components/app-logo/AppLogo";
 import { BuiltInProviderType } from "next-auth/providers/index";
+import { GradientContainer } from "@/components/gradient-container/GradientContainer";
 
 export const Auth = () => {
   const [providers, setProviders] = useState<Record<
@@ -41,20 +42,22 @@ export const Auth = () => {
   return (
     <div className="container mx-auto p-4 max-w-full bg-gradient-to-br from-blue-100 to-pink-100 flex items-center justify-center h-full">
       <Card className="w-[414px] bg-white bg-opacity-90 shadow-xl">
-        <CardHeader className="bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-t-lg p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-            {" "}
-            <AppLogo />
-            <div>
-              <CardTitle className="text-2xl sm:text-3xl font-bold text-center sm:text-left">
-                Runner Pulse
-              </CardTitle>
-              <CardDescription className="text-center sm:text-left text-blue-100 mt-2">
-                Track your running journey
-              </CardDescription>
+        <GradientContainer>
+          <CardHeader className=" rounded-t-lg p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+              {" "}
+              <AppLogo />
+              <div>
+                <CardTitle className="text-2xl sm:text-3xl font-bold text-center sm:text-left">
+                  Runner Pulse
+                </CardTitle>
+                <CardDescription className="text-center sm:text-left text-blue-100 mt-2">
+                  Track your running journey
+                </CardDescription>
+              </div>
             </div>
-          </div>
-        </CardHeader>
+          </CardHeader>
+        </GradientContainer>
         <CardContent className="p-6 sm:p-8">
           <div className="space-y-4">
             <p className="text-gray-600 text-center">
