@@ -14,7 +14,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { PageHeading } from "@/components/page-heading/PageHeading";
-import { Avatar as UiAvatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import {
+  Avatar as UiAvatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
 import { Routes } from "@/utils/router/Routes.constants";
 
@@ -32,7 +36,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center mb-6">
+    <div className="flex justify-between items-center mb-6 mt-4">
       <PageHeading activeTab={activeTab} />
       <div className="flex items-center space-x-4">
         <Sheet>
