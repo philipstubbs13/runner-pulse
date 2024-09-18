@@ -62,8 +62,7 @@ export const EditPhotoCard = (props: IProps) => {
           </Button>
         </div>
       ) : (
-        <div className="flex justify-between items-center">
-          <p className="text-gray-700">{props.photo.caption}</p>
+        <div className="flex flex-col justify-between gap-3">
           <div className="space-x-2">
             <Button
               variant="outline"
@@ -80,6 +79,7 @@ export const EditPhotoCard = (props: IProps) => {
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
+          <p className="text-gray-700">{props.photo.caption}</p>
         </div>
       )}
     </div>

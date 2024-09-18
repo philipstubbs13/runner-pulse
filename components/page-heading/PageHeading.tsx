@@ -12,10 +12,10 @@ export const PageHeading = (props: IProps) => {
     <div
       className={clsx({
         [getTitleColor(props.activeTab)]: true,
-        "flex items-center": true,
+        "flex items-center gap-2": true,
       })}
     >
-      <AppLogo />
+      <AppLogo size={"small"} />
       <h1 className={"text-4xl font-bold transition-colors duration-300"}>
         Runner Pulse
       </h1>

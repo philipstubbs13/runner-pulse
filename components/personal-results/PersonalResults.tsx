@@ -34,7 +34,7 @@ export const PersonalResults = async () => {
           title="No results yet"
         />
       )}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col md:flex-row md:items-center gap-4">
         <AddResultDialog distances={distances} />
         <Link href={Routes.ManageRaceDistances}>
           <Button

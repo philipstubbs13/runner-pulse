@@ -34,6 +34,7 @@ export const PersonalResultsList = (props: IProps) => {
         <TableRow className="bg-blue-100">
           <TableHead className="text-blue-700">Date</TableHead>
           <TableHead className="text-blue-700">Race</TableHead>
+          <TableHead className="text-blue-700">Location</TableHead>
           <TableHead className="text-blue-700">Distance</TableHead>
           <TableHead className="text-blue-700">Time (HH:MM:SS)</TableHead>
           <TableHead className="text-blue-700"></TableHead>
@@ -46,6 +47,9 @@ export const PersonalResultsList = (props: IProps) => {
               {result.date && formatISODate(result.date.toISOString())}
             </TableCell>
             <TableCell>{result.race}</TableCell>
+            <TableCell>
+              {result.city ? `${result.city}, ${result.state}` : ""}
+            </TableCell>
             <TableCell>{result.raceDistance}</TableCell>
             <TableCell>{result.time}</TableCell>
             <TableCell className="flex">

@@ -27,6 +27,8 @@ model RaceResult {
   id           String       @id @default(auto()) @map("_id") @db.ObjectId
   date         DateTime     @default(now())
   race         String
+  city         String       @default("")
+  state        String       @default("")
   distance     RaceDistance @relation(fields: [raceDistance], references: [distance], onDelete: Cascade)
   time         String
   userId       String       @db.ObjectId

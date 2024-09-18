@@ -14,7 +14,7 @@ export default async function Layout(props: PropsWithChildren<IProps>) {
   }
 
   return (
-    <div className="mx-auto p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
+    <div className="mx-auto md:p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
       <Header />
       <Tabs>{props.children}</Tabs>
     </div>

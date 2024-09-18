@@ -26,9 +26,11 @@ async function addRaceResult(formData: FormData): Promise<void> {
 
   await db.raceResult.create({
     data: {
+      city: (formData.get("city") as string) || "",
       date: new Date(raceResultData.date).toISOString(),
       race: raceResultData.race,
       raceDistance: formData.get("distance") as string,
+      state: (formData.get("state") as string) || "",
       time: raceResultData.time,
       userId,
     },

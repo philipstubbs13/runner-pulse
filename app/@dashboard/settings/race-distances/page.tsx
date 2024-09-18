@@ -17,7 +17,7 @@ export default async function RaceDistances() {
   });
 
   return (
-    <div className="container mx-auto p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
+    <div className="container mx-auto md:p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
       <Link
         href={Routes.Results}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-4"

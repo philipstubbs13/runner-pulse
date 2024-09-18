@@ -16,7 +16,7 @@ export default async function Settings() {
   const hasPhotos = photos.length > 0;
 
   return (
-    <div className="p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
+    <div className="md:p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
       <Link
         href={Routes.Gallery}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-4"
@@ -26,7 +26,7 @@ export default async function Settings() {
       </Link>
       <TabCard tab={Tab.Settings}>
         {hasPhotos && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {photos.map((photo) => (
               <EditPhotoCard key={photo.id} photo={photo} />
             ))}

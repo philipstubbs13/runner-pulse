@@ -41,30 +41,38 @@ export const Auth = () => {
   return (
     <div className="container mx-auto p-4 max-w-full bg-gradient-to-br from-blue-100 to-pink-100 flex items-center justify-center h-full">
       <Card className="w-[414px] bg-white bg-opacity-90 shadow-xl">
-        <CardHeader className="bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-t-lg">
-          <CardTitle className="text-2xl flex items-center justify-center">
+        <CardHeader className="bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-t-lg p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+            {" "}
             <AppLogo />
-            Runner Pulse
-          </CardTitle>
-          <CardDescription className="text-center text-blue-100">
-            Track your running journey
-          </CardDescription>
+            <div>
+              <CardTitle className="text-2xl sm:text-3xl font-bold text-center sm:text-left">
+                Runner Pulse
+              </CardTitle>
+              <CardDescription className="text-center sm:text-left text-blue-100 mt-2">
+                Track your running journey
+              </CardDescription>
+            </div>
+          </div>
         </CardHeader>
-        <CardContent className="pt-6">
-          {providers &&
-            Object.values(providers).map((provider, index) => (
-              <Button
-                key={index}
-                onClick={() => handleSignIn(provider.id)}
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
-              >
-                <LogIn className="mr-2 h-5 w-5" />
-                Sign In
-              </Button>
-            ))}
-          <p className="mt-4 text-center text-sm text-gray-600">
-            Click to sign in or create an account
-          </p>
+        <CardContent className="p-6 sm:p-8">
+          <div className="space-y-4">
+            <p className="text-gray-600 text-center">
+              Welcome to Runner Pulse! Sign in to access your personalized
+              running dashboard.
+            </p>
+            {providers &&
+              Object.values(providers).map((provider, index) => (
+                <Button
+                  key={index}
+                  onClick={() => handleSignIn(provider.id)}
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
+                >
+                  <LogIn className="mr-2 h-5 w-5" />
+                  Sign In
+                </Button>
+              ))}
+          </div>
         </CardContent>
       </Card>
     </div>

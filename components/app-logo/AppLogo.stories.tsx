@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AppLogo } from "./AppLogo";
 
 /**
- * The `AppLogo` component renders an SVG logo for the application with optional background color control.
+ * The `AppLogo` component renders an SVG logo for the application with optional background color and size control.
  */
 const meta = {
   component: AppLogo,
@@ -14,8 +14,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Large: Story = {
   args: {},
+};
+
+export const Small: Story = {
+  args: {
+    size: "small",
+  },
 };
 
 export const DarkBackground: Story = {

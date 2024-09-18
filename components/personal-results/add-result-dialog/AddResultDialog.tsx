@@ -19,6 +19,7 @@ import { IPersonalResult } from "@/components/personal-results/PersonalResults.t
 import {
   PersonalResultTime,
   personalResultTimePlaceholders,
+  states,
 } from "@/components/personal-results/PersonalResults.constants";
 import { SubmitButton } from "@/components/buttons/submit-button/SubmitButton";
 import { Tab } from "@/components/tabs/Tabs.constants";
@@ -44,7 +45,7 @@ export const AddResultDialog = (props: IProps) => {
   const { distances = [] } = props;
   const [open, setOpen] = useState<boolean>(false);
   const isEditingResult = props.result;
-  const dialogTitle = props.result ? "Edit Result" : "Add New Result";
+  const dialogTitle = props.result ? "Edit Result" : "Add Result";
   const time = props.result?.time || "";
   const [hours, minutes, seconds] = time?.split(":");
   const resultIdToEdit = props.result?.id || "";
@@ -77,14 +78,14 @@ export const AddResultDialog = (props: IProps) => {
           )}
           {!isEditingResult && (
             <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-              Add New Result
+              {dialogTitle}
             </Button>
           )}
         </div>
       }
     >
       <form action={onSubmit} className="space-y-4">
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid md:grid-cols-2 gap-2">
           <Input
             className="border-blue-300 focus:border-blue-500"
             defaultValue={
@@ -125,8 +126,33 @@ export const AddResultDialog = (props: IProps) => {
             ))}
           </SelectContent>
         </Select>
+        <div className="flex flex-col md:flex-row gap-4">
+          <Input
+            defaultValue={props.result?.city}
+            name="city"
+            placeholder="City"
+            required={true}
+            className="border-blue-300 focus:border-blue-500"
+          />
+          <Select
+            defaultValue={props.result?.state}
+            name="state"
+            required={true}
+          >
+            <SelectTrigger className="border-blue-300 focus:border-blue-500">
+              <SelectValue placeholder="Select State" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              {states.map((state) => (
+                <SelectItem key={state.value} value={state.value}>
+                  {state.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
         <p className="font-bold pt-3">Finish Time</p>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid md:grid-cols-2 gap-2">
           <Select name={PersonalResultTime.Hours} defaultValue={hours}>
             <SelectTrigger>
               <SelectValue

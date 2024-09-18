@@ -33,9 +33,11 @@ async function editRaceResult(
   await db.raceResult.update({
     where: { id: raceResultId },
     data: {
+      city: (formData.get("city") as string) || "",
       date: new Date(date).toISOString(),
       race: formData.get("race") as string,
       raceDistance: formData.get("distance") as string,
+      state: (formData.get("state") as string) || "",
       time,
     },
   });

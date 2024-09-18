@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface IProps {
   /**
    * A string that sets the background color of the logo.
@@ -5,12 +7,21 @@ interface IProps {
    * allowing the logo to render with a transparent background.
    */
   backgroundColor?: string;
+  /**
+   * Size of logo. Defaults to `large`.
+   */
+  size?: "small" | "large";
 }
 
 export const AppLogo = (props: IProps) => {
+  const { size = "large" } = props;
+
   return (
     <svg
-      className="w-8 h-8 mr-2"
+      className={clsx({
+        "w-16 h-16 sm:w-20 sm:h-20": size === "large",
+        "w-8 h-8": size === "small",
+      })}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
