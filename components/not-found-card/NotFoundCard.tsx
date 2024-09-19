@@ -34,14 +34,17 @@ export const NotFoundCard = (props: PropsWithChildren<IProps>) => {
   return (
     <Card className="w-full max-w-md bg-white shadow-lg">
       <CardHeader className="bg-yellow-500 text-white text-center py-6">
-        <AlertTriangle className="mx-auto h-16 w-16 mb-4" />
+        <AlertTriangle
+          className="mx-auto h-16 w-16 mb-4"
+          data-testid="alert-triangle"
+        />
         <CardTitle className="text-3xl font-bold">{props.title}</CardTitle>
       </CardHeader>
       <CardContent className="text-center pt-6">{props.children}</CardContent>
       <CardFooter className="flex justify-center pt-2 pb-6">
         <Link href={props.redirectLink} passHref>
           <Button className="bg-green-500 hover:bg-green-600 text-white">
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="mr-2 h-4 w-4" data-testid="arrowleft" />
             {props.redirectLinkLabel}
           </Button>
         </Link>

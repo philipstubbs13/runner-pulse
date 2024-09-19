@@ -22,6 +22,7 @@ export const AppLogo = (props: IProps) => {
         "w-16 h-16 sm:w-20 sm:h-20": size === "large",
         "w-8 h-8": size === "small",
       })}
+      data-testid="app-logo"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

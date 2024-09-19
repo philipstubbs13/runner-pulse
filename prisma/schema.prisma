@@ -24,17 +24,18 @@ model User {
 }
 
 model RaceResult {
-  id           String       @id @default(auto()) @map("_id") @db.ObjectId
-  date         DateTime     @default(now())
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  date         DateTime      @default(now())
   race         String
-  city         String       @default("")
-  state        String       @default("")
-  distance     RaceDistance @relation(fields: [raceDistance], references: [distance], onDelete: Cascade)
+  city         String        @default("")
+  state        String        @default("")
   time         String
-  userId       String       @db.ObjectId
-  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt    DateTime     @default(now())
+  userId       String        @db.ObjectId
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime      @default(now())
   raceDistance String
+  RaceDistance RaceDistance? @relation(fields: [distanceId], references: [id])
+  distanceId   String?       @db.ObjectId
 
   @@index([userId])
 }
@@ -52,7 +53,7 @@ model RacePhoto {
 
 model RaceDistance {
   id         String       @id @default(auto()) @map("_id") @db.ObjectId
-  distance   String       @unique() @default("")
+  distance   String       @default("")
   userId     String       @db.ObjectId
   user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt  DateTime     @default(now())

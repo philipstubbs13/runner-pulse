@@ -37,6 +37,7 @@ export const Avatar = (props: IProps) => {
         "cursor-pointer": true,
         [className]: className,
       })}
+      data-testid="ui-avatar"
     >
       <AvatarImage alt={alt} src={props.image} />
       <AvatarFallback>

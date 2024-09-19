@@ -14,6 +14,7 @@ export const PageHeading = (props: IProps) => {
         [getTitleColor(props.activeTab)]: true,
         "flex items-center gap-2": true,
       })}
+      data-testid="page-heading-container"
     >
       <AppLogo size={"small"} />
       <h1 className={"text-4xl font-bold transition-colors duration-300"}>

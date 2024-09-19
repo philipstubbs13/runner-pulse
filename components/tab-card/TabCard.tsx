@@ -33,8 +33,12 @@ export const TabCard = (props: PropsWithChildren<IProps>) => {
   return (
     <Card
       className={`bg-white bg-opacity-75 ${borderColor} border-2 shadow-lg`}
+      data-testid="tab-card-container"
     >
-      <CardHeader className={`${backgroundColor} text-white rounded-t-lg`}>
+      <CardHeader
+        className={`${backgroundColor} text-white rounded-t-lg`}
+        data-testid="card-header"
+      >
         <CardTitle>{title}</CardTitle>
         <CardDescription className={descriptionColor}>
           {description}

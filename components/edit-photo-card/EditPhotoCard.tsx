@@ -69,14 +69,14 @@ export const EditPhotoCard = (props: IProps) => {
               size="sm"
               onClick={() => handleEdit(props.photo.id, props.photo.caption)}
             >
-              <Pencil className="h-4 w-4" />
+              <Pencil className="h-4 w-4" aria-label="Pencil" />
             </Button>
             <Button
               variant="destructive"
               size="sm"
               onClick={() => handleDelete(props.photo.id)}
             >
-              <Trash2 className="h-4 w-4" />
+              <Trash2 className="h-4 w-4" aria-label="Trash" />
             </Button>
           </div>
           <p className="text-gray-700">{props.photo.caption}</p>
