@@ -22,6 +22,12 @@ export const Footer = () => {
                 <ul className="space-y-2">
                   <li>
                     <FooterQuickLink
+                      href={Routes.BusinessCard}
+                      label="Grab a Business Card"
+                    />
+                  </li>
+                  <li>
+                    <FooterQuickLink
                       href={Routes.Results}
                       label="Personal Results"
                     />

@@ -28,6 +28,8 @@ import {
   getMinutesOrSecondsValues,
 } from "@/utils/getTimeValues";
 import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
+import Link from "next/link";
+import { Routes } from "@/utils/router/Routes.constants";
 
 interface IProps {
   /**
@@ -126,6 +128,11 @@ export const AddResultDialog = (props: IProps) => {
             ))}
           </SelectContent>
         </Select>
+        <Link href={Routes.ManageRaceDistances}>
+          <Button variant="link" className="hover:text-blue-500">
+            Add Race Distance
+          </Button>
+        </Link>
         <div className="flex flex-col md:flex-row gap-4">
           <Input
             defaultValue={props.result?.city}

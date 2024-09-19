@@ -1,4 +1,5 @@
 export enum Routes {
+  BusinessCard = "/business-card",
   Gallery = "/gallery",
   Home = "/",
   RaceDetails = "/races/[id]",
