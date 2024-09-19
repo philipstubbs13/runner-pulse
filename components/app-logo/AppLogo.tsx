@@ -29,11 +29,6 @@ export const AppLogo = (props: IProps) => {
       style={{ backgroundColor: props.backgroundColor }}
     >
       <path
-        d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <path
         d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2Z"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -41,12 +36,96 @@ export const AppLogo = (props: IProps) => {
         strokeLinejoin="round"
       />
       <path
-        d="M15.5 12H22M12 2V8.5M2 12H8.5"
+        d="M12 8.5V2"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      <path
+        d="M12 22V15.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15.5 12H22"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2 12H8.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M12 8.5L15.5 12L12 15.5L8.5 12L12 8.5Z" fill="url(#gradient1)" />
+      <path d="M12 2L15.5 12H8.5L12 2Z" fill="url(#gradient2)" />
+      <path d="M15.5 12L12 22L8.5 12H15.5Z" fill="url(#gradient3)" />
+      <path d="M22 12L12 15.5V8.5L22 12Z" fill="url(#gradient4)" />
+      <path d="M2 12L12 8.5V15.5L2 12Z" fill="url(#gradient5)" />
+      <defs>
+        <linearGradient
+          id="gradient1"
+          x1="8.5"
+          y1="8.5"
+          x2="15.5"
+          y2="15.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#3B82F6" />
+          <stop offset="0.5" stopColor="#10B981" />
+          <stop offset="1" stopColor="#EC4899" />
+        </linearGradient>
+        <linearGradient
+          id="gradient2"
+          x1="8.5"
+          y1="2"
+          x2="15.5"
+          y2="12"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#3B82F6" />
+          <stop offset="1" stopColor="#10B981" />
+        </linearGradient>
+        <linearGradient
+          id="gradient3"
+          x1="8.5"
+          y1="12"
+          x2="15.5"
+          y2="22"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#10B981" />
+          <stop offset="1" stopColor="#EC4899" />
+        </linearGradient>
+        <linearGradient
+          id="gradient4"
+          x1="12"
+          y1="8.5"
+          x2="22"
+          y2="12"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#3B82F6" />
+          <stop offset="1" stopColor="#EC4899" />
+        </linearGradient>
+        <linearGradient
+          id="gradient5"
+          x1="2"
+          y1="12"
+          x2="12"
+          y2="15.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#10B981" />
+          <stop offset="1" stopColor="#3B82F6" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 };

@@ -5,14 +5,14 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: "jsdom",
-    globals: true,
-    setupFiles: "setupTests",
-    mockReset: true,
     coverage: {
       enabled: true,
       reporter: ["text", "json-summary", "json", "html"],
     },
+    environment: "jsdom",
+    globals: true,
+    mockReset: true,
+    setupFiles: "setupTests",
   },
   resolve: {
     alias: {
