@@ -44,7 +44,7 @@ export const TabCard = (props: PropsWithChildren<IProps>) => {
           {description}
         </CardDescription>
       </CardHeader>
-      <CardContent>{props.children}</CardContent>
+      <CardContent>test</CardContent>
     </Card>
   );
 };
