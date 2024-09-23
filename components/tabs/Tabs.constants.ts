@@ -1,7 +1,7 @@
 export enum Tab {
-  Results = "results",
-  Races = "races",
-  Gallery = "gallery",
+  Results = "/dashboard/results",
+  Races = "/dashboard/races",
+  Gallery = "/dashboard/gallery",
   Settings = "settings",
   RaceDistances = "race-distances",
 }

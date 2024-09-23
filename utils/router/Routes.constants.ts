@@ -1,10 +1,10 @@
 export enum Routes {
   BusinessCard = "/business-card",
-  Gallery = "/gallery",
+  Gallery = "/dashboard/gallery",
   Home = "/",
-  RaceDetails = "/races/[id]",
-  Races = "/races",
-  Results = "/results",
+  RaceDetails = "/dashboard/races/[id]",
+  Races = "/dashboard/races",
+  Results = "/dashboard/results",
   ManagePhotos = "/settings/manage-photos",
   ManageRaceDistances = "/settings/race-distances",
 }

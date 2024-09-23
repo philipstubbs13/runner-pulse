@@ -5,9 +5,7 @@ import { Tabs } from "@/components/tabs/Tabs";
 import { getSessionUser } from "@/utils/getSessionUser";
 import { PropsWithChildren } from "react";
 
-interface IProps {}
-
-export default async function Layout(props: PropsWithChildren<IProps>) {
+export default async function DashboardLayout(props: PropsWithChildren) {
   const user = await getSessionUser();
 
   if (!user) {

@@ -9,7 +9,6 @@ import { ReactNode } from "react";
 
 interface IProps {
   children: ReactNode;
-  dashboard: ReactNode;
 }
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +24,7 @@ export default function RootLayout(props: Readonly<IProps>) {
       <GlobalProvider>
         <html lang="en" className={"h-full"}>
           <body className={clsx(inter.className, "h-full")}>
-            {props.dashboard}
+            {props.children}
           </body>
         </html>
       </GlobalProvider>
