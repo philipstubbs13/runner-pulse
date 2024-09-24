@@ -143,23 +143,29 @@ The Runner Pulse app demonstrates expertise in:
 
 Follow these instructions to set up and run the project on your local machine.
 
-Clone the project from GitHub.
+1. Clone the project from GitHub.
 
 ```bash
   git clone https://github.com/philipstubbs13/runner-pulse.git
 ```
 
-Go to the project directory.
+2. Go to the project directory.
 
 ```bash
   cd runner-pulse
 ```
 
-Install dependencies.
+3. Install dependencies.
 
 ```bash
   npm install
 ```
+
+4. Set up environment variables.
+
+   a. In the root of the project, create a `.env` file.
+
+   b. Copy the environment variables from `.env.example` into the `.env` file.
 
 Start the Next.js development server.
 
