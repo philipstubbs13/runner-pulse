@@ -21,11 +21,12 @@ Runner Pulse is a comprehensive web application designed for passionate runners 
 - [Acknowledgments](#about-the-project)
 - [About the Project](#about-the-project)
   - [Built With](#tech-stack)
-  - [Features](#features)
+  - [Key Features](#features)
   - [Technical Highlights](#highlights)
   - [My Expertise](#expertise)
 - [Getting Started](#getting-started)
 - [Running Storybook](#running-storybook)
+- [Running Tests](#running-tests)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -48,7 +49,7 @@ This project showcases the ability to deliver a feature-rich, user-centric appli
     <li><a href="https://react.dev/">React.js</a></li>
     <li><a href="https://nextjs.org/">Next.js</a></li>
     <li><a href="https://tailwindcss.com/">Tailwind</a></li>
-    <li><a href="hhttps://66e7fab26977c0410ed6ca2b-ymdpnwigph.chromatic.com">Storybook</a></li>
+    <li><a href="https://66e7fab26977c0410ed6ca2b-ymdpnwigph.chromatic.com">Storybook</a></li>
     <li><a href="https://www.chromatic.com/library?appId=66e7fab26977c0410ed6ca2b">Chromatic</a></li>
     <li><a href="https://recharts.org/en-US/">Recharts</a></li>
     <li><a href="https://www.mongodb.com/">MongoDB</a></li>
@@ -56,6 +57,8 @@ This project showcases the ability to deliver a feature-rich, user-centric appli
     <li><a href="https://cloudinary.com/">Cloudinary</a></li>
     <li><a href="https://ui.shadcn.com/">shadcn/ui</a></li>
     <li><a href="https://next-auth.js.org/">NextAuth</a></li>
+    <li><a href="https://vitest.dev/">Vitest (unit testing framework)</a></li>
+    <li><a href="https://tanstack.com/table/v8">TanStack Table</a></li>
   </ul>
 
 ### <a name="features"></a>Key Features
@@ -139,13 +142,27 @@ The Storybook for this project is deployed to the following URL: <https://66e7fa
 
 For this project, Storybook is deployed via Chromatic. Chromatic catalogs the component library across commits and branches. If you plan to contribute to this project, it can help with reviewing the UI components, see past versions of the component, and get feedback on any work in progress.
 
-The Chromatic library is available at the following URL (mostly valuale only if you plan to contribute to this project):
+The Chromatic library is available at the following URL (mostly valuable only if you plan to contribute to this project):
 
 <https://www.chromatic.com/library?appId=66e7fab26977c0410ed6ca2b>
 
 Currently, When you push code to the main branch, a GitHub action is set up for this repository to automatically kick off a build in Chromatic. The Chromatic GitHub action is located in the **.github/workflows** directory of the repository. The `CHROMATIC_PROJECT_TOKEN` must be configured as a repository secret in the settings of this repository for this action to work.
 
 When this action is run, a build will be kicked off. After the build is complete, you can review the component changes associated with that build and either accept or deny those changes from the Chromatic library.
+
+## <a name="running-tests"></a>Running Tests
+
+This project uses [vitest](https://vitest.dev/) for unit tests. To run the unit tests for this project, run the following command in the root directory of this project.
+
+```bash
+  npm run test
+```
+
+To generate a test coverage report, run the following command:
+
+```bash
+npm run coverage
+```
 
 ### <a name="deployment"></a>Deployment
 
