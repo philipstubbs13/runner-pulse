@@ -12,12 +12,14 @@ Runner Pulse is a comprehensive web application designed for passionate runners 
   <span> · </span>
     <a href="https://github.com/philipstubbs13/runner-pulse/issues">Report Issue</a>
   </h4>
+  <img src="./readme_images/business-card.png">
 </div>
 
 <br />
 
 # Table of Contents
 
+- [Screenshots](#screenshots)
 - [Acknowledgments](#about-the-project)
 - [About the Project](#about-the-project)
   - [Built With](#tech-stack)
@@ -31,6 +33,56 @@ Runner Pulse is a comprehensive web application designed for passionate runners 
 - [Contributing](#contributing)
 - [Contact](#contact)
 - [Issues And Requests](#issues-and-requests)
+
+## <a name="screenshots"></a> Screenshots
+
+### Charts
+
+#### Race Distribution By City Chart
+
+<img src="./readme_images/race_distribution_by_city_chart.png">
+
+#### Performance Over Time Chart
+
+<img src="./readme_images/performance_over_time_chart.png">
+
+#### Average Time By Distance Chart
+
+<img src="./readme_images/average_time_by_distance_chart.png">
+
+### Login
+
+<img src="./readme_images/login.png">
+
+### Personal Results
+
+<img src="./readme_images/personal_results.png">
+
+<img src="./readme_images/add_result_dialog.png">
+
+### Upcoming Races
+
+<img src="./readme_images/upcoming_races.png">
+
+### Race Details
+
+<img src="./readme_images/race_details.png">
+
+### Photo Gallery
+
+<img src="./readme_images/photo_gallery.png">
+
+### Stats
+
+<img src="./readme_images/stats.png">
+
+### Manage Race Distances
+
+<img src="./readme_images/manage_race_distances.png">
+
+### Manage Race Locations
+
+<img src="./readme_images/manage_race_locations.png">
 
 ## <a name="acknowledgments"></a>Acknowledgments
 
