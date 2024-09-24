@@ -11,6 +11,7 @@
     "build-storybook": "storybook build",
     "postinstall": "prisma generate",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "ts": "tsc --noEmit"
   },
   "dependencies": {
