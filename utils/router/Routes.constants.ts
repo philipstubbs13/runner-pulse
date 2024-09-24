@@ -8,6 +8,7 @@ export enum Routes {
   Stats = "/dashboard/stats",
   ManagePhotos = "/settings/manage-photos",
   ManageRaceDistances = "/settings/race-distances",
+  ManageRaceLocations = "/settings/manage-locations",
 }
 
 export enum RoutesDynamicKey {

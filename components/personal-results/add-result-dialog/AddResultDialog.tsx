@@ -19,7 +19,6 @@ import { IPersonalResult } from "@/components/personal-results/PersonalResults.t
 import {
   PersonalResultTime,
   personalResultTimePlaceholders,
-  states,
 } from "@/components/personal-results/PersonalResults.constants";
 import { SubmitButton } from "@/components/buttons/submit-button/SubmitButton";
 import { Tab } from "@/components/tabs/Tabs.constants";
@@ -31,6 +30,7 @@ import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
 import Link from "next/link";
 import { Routes } from "@/utils/router/Routes.constants";
 import { useToast } from "@/hooks/use-toast";
+import { IRaceLocation } from "@/components/locations-list/LocationsList.types";
 
 interface IProps {
   /**
@@ -42,10 +42,14 @@ interface IProps {
    * List of distances to populate distance dropdown in add result dialog form.
    */
   distances?: IRaceDistance[];
+  /**
+   * List of locations to populate location dropdown in add result dialog form.
+   */
+  locations?: IRaceLocation[];
 }
 
 export const AddResultDialog = (props: IProps) => {
-  const { distances = [] } = props;
+  const { distances = [], locations = [] } = props;
   const [open, setOpen] = useState<boolean>(false);
   const { toast } = useToast();
   const isEditingResult = props.result;
@@ -141,30 +145,28 @@ export const AddResultDialog = (props: IProps) => {
             Add Race Distance
           </Button>
         </Link>
-        <div className="flex flex-col md:flex-row gap-4">
-          <Input
-            defaultValue={props.result?.city}
-            name="city"
-            placeholder="City"
-            required={true}
-            className="border-blue-300 focus:border-blue-500"
-          />
+        <div>
           <Select
-            defaultValue={props.result?.state}
-            name="state"
+            defaultValue={props.result?.raceLocationId || ""}
+            name="location"
             required={true}
           >
             <SelectTrigger className="border-blue-300 focus:border-blue-500">
-              <SelectValue placeholder="Select State" />
+              <SelectValue placeholder="Select Location" />
             </SelectTrigger>
             <SelectContent className="bg-white">
-              {states.map((state) => (
-                <SelectItem key={state.value} value={state.value}>
-                  {state.label}
+              {locations.map((location) => (
+                <SelectItem key={location.id} value={location.id}>
+                  {location.city}, {location.state}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
+          <Link href={Routes.ManageRaceLocations}>
+            <Button variant="link" className="hover:text-blue-500">
+              Add Race Location
+            </Button>
+          </Link>
         </div>
         <p className="font-bold pt-3">Finish Time</p>
         <div className="grid md:grid-cols-2 gap-2">

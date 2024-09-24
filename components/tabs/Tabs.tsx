@@ -15,7 +15,7 @@ export const Tabs = (props: PropsWithChildren) => {
       onValueChange={(value: string) => updateActiveTab(value as Tab)}
     >
       {!shouldHideTabs && (
-        <TabsList className=" bg-opacity-50 p-1 rounded-lg flex items-center justify-start flex-wrap h-auto space-y-1">
+        <TabsList className=" bg-opacity-50 p-1 rounded-lg flex items-center sm:justify-center md:justify-start flex-wrap h-auto space-y-1">
           <TabsTrigger
             className="data-[state=active]:bg-blue-500 data-[state=active]:text-white"
             value={Tab.Results}

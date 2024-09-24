@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  LabelList,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import {
   Card,
@@ -67,15 +60,7 @@ export const DistanceComparisonChart = (props: IProps) => {
               formatter={(value) => minutesToTime(Number(value))}
             />
             <ChartLegend content={<ChartLegendContent />} />
-            <Bar dataKey="averageTime" fill="#10B981" radius={8}>
-              <LabelList
-                position="top"
-                offset={12}
-                className="fill-foreground"
-                fontSize={12}
-                formatter={(value: string) => minutesToTime(Number(value))}
-              />
-            </Bar>
+            <Bar dataKey="averageTime" fill="#10B981" radius={8} />
           </BarChart>
         </ChartContainer>
       </CardContent>

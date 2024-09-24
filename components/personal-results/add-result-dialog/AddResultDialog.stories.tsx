@@ -27,6 +27,7 @@ export const IsEditingResult: Story = {
       id: "3",
       race: "Twin Cities Marathon",
       raceDistance: "Marathon",
+      raceLocationId: "1",
       time: "03:30:15",
     },
   },

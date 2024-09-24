@@ -30,14 +30,20 @@ async function editRaceResult(
   const time = `${hours}:${minutes}:${seconds}`;
   const date = formData.get("date") as string;
 
+  const locationId = formData.get("location") as string;
+  const location = await db.raceLocation.findFirst({
+    where: { id: locationId },
+  });
+
   await db.raceResult.update({
     where: { id: raceResultId },
     data: {
-      city: (formData.get("city") as string) || "",
+      city: location?.city || "",
       date: new Date(date).toISOString(),
       race: formData.get("race") as string,
       raceDistance: formData.get("distance") as string,
-      state: (formData.get("state") as string) || "",
+      raceLocationId: locationId,
+      state: location?.state || "",
       time,
     },
   });

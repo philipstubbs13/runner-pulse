@@ -24,13 +24,19 @@ async function addRaceResult(formData: FormData): Promise<void> {
     time,
   };
 
+  const locationId = formData.get("location") as string;
+  const location = await db.raceLocation.findFirst({
+    where: { id: locationId },
+  });
+
   await db.raceResult.create({
     data: {
-      city: (formData.get("city") as string) || "",
+      city: location?.city || "",
       date: new Date(raceResultData.date).toISOString(),
       race: raceResultData.race,
       raceDistance: formData.get("distance") as string,
-      state: (formData.get("state") as string) || "",
+      raceLocationId: locationId,
+      state: location?.state || "",
       time: raceResultData.time,
       userId,
     },

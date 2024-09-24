@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { LogOut, Route, Settings } from "lucide-react";
+import { LogOut, MapPinHouse, Route, Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useGlobalContext } from "@/context/global-context/GlobalContext";
 import { Tab } from "@/components/tabs/Tabs.constants";
@@ -36,7 +36,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center mb-6 pt-4">
+    <div className="flex justify-around sm:justify-between items-center mb-6 pt-4">
       <PageHeading activeTab={activeTab} />
       <div className="flex items-center space-x-4">
         <Sheet>
@@ -90,6 +90,14 @@ export const Header = () => {
               >
                 <Route className="mr-2 h-4 w-4" />
                 Manage Race Distances
+              </Button>
+              <Button
+                onClick={() => router.push(Routes.ManageRaceLocations)}
+                variant="outline"
+                className="w-full mb-2"
+              >
+                <MapPinHouse className="mr-2 h-4 w-4" />
+                Manage Race Locations
               </Button>
               <Button
                 onClick={handleLogout}

@@ -24,6 +24,7 @@ const resultsMock: IPersonalResult[] = [
     id: "1",
     race: "Heart of the City",
     time: "01:05:38",
+    raceLocationId: "1",
   },
   {
     date: new Date("09/14/2024"),
@@ -31,6 +32,7 @@ const resultsMock: IPersonalResult[] = [
     id: "2",
     race: "Circle the Lake",
     time: "00:42:15",
+    raceLocationId: "2",
   },
   {
     date: new Date("10/01/2022"),
@@ -38,12 +40,14 @@ const resultsMock: IPersonalResult[] = [
     id: "3",
     race: "Twin Cities Marathon",
     time: "03:30:15",
+    raceLocationId: "3",
   },
 ];
 
 export const Basic: Story = {
   args: {
     distances: [],
+    locations: [],
     results: resultsMock,
   },
 };
@@ -51,6 +55,7 @@ export const Basic: Story = {
 export const EmptyList: Story = {
   args: {
     distances: [],
+    locations: [],
     results: [],
   },
 };

@@ -19,12 +19,19 @@ export const PersonalResults = async () => {
   const distances = await db.raceDistance.findMany({
     where: { userId: sessionUser?.userId },
   });
+  const locations = await db.raceLocation.findMany({
+    where: { userId: sessionUser?.userId },
+  });
   const hasResults = results.length > 0;
 
   return (
     <div className="space-y-4">
       {hasResults && (
-        <PersonalResultsList distances={distances} results={results} />
+        <PersonalResultsList
+          distances={distances}
+          locations={locations}
+          results={results}
+        />
       )}
       {!hasResults && (
         <NoResults
@@ -35,7 +42,7 @@ export const PersonalResults = async () => {
         />
       )}
       <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <AddResultDialog distances={distances} />
+        <AddResultDialog distances={distances} locations={locations} />
         <Link href={Routes.ManageRaceDistances}>
           <Button
             variant="outline"

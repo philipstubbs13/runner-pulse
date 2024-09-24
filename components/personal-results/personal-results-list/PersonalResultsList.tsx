@@ -8,6 +8,7 @@ import {
   columns,
 } from "@/components/personal-results/personal-results-table/Columns";
 import { DataTable } from "@/components/data-table/DataTable";
+import { IRaceLocation } from "@/components/locations-list/LocationsList.types";
 
 interface IProps {
   /**
@@ -18,6 +19,10 @@ interface IProps {
    * List of distances to populate distance dropdown in add result dialog form.
    */
   distances: IRaceDistance[];
+  /**
+   * List of locations to populate location dropdown in add result dialog form.
+   */
+  locations: IRaceLocation[];
 }
 
 export const PersonalResultsList = (props: IProps) => {
@@ -30,6 +35,7 @@ export const PersonalResultsList = (props: IProps) => {
     time: result.time,
     result,
     distances: props.distances,
+    locations: props.locations,
   }));
 
   return <DataTable columns={columns} data={data} />;

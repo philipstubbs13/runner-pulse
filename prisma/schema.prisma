@@ -21,21 +21,24 @@ model User {
   results   RaceResult[]
   photos    RacePhoto[]
   distances RaceDistance[]
+  locations RaceLocation[]
 }
 
 model RaceResult {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
-  date         DateTime      @default(now())
-  race         String
-  city         String        @default("")
-  state        String        @default("")
-  time         String
-  userId       String        @db.ObjectId
-  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt    DateTime      @default(now())
-  raceDistance String
-  RaceDistance RaceDistance? @relation(fields: [distanceId], references: [id])
-  distanceId   String?       @db.ObjectId
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  date           DateTime      @default(now())
+  race           String
+  city           String        @default("")
+  state          String        @default("")
+  time           String
+  userId         String        @db.ObjectId
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt      DateTime      @default(now())
+  raceDistance   String
+  RaceDistance   RaceDistance? @relation(fields: [distanceId], references: [id])
+  distanceId     String?       @db.ObjectId
+  RaceLocation   RaceLocation? @relation(fields: [raceLocationId], references: [id])
+  raceLocationId String?       @db.ObjectId
 
   @@index([userId])
 }
@@ -54,6 +57,18 @@ model RacePhoto {
 model RaceDistance {
   id         String       @id @default(auto()) @map("_id") @db.ObjectId
   distance   String       @default("")
+  userId     String       @db.ObjectId
+  user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime     @default(now())
+  RaceResult RaceResult[]
+
+  @@index([userId])
+}
+
+model RaceLocation {
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  city       String
+  state      String
   userId     String       @db.ObjectId
   user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt  DateTime     @default(now())

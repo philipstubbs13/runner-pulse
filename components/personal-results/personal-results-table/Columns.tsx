@@ -6,6 +6,7 @@ import { ArrowUpDown } from "lucide-react";
 import { IPersonalResult } from "@/components/personal-results/PersonalResults.types";
 import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
 import { PersonalResultsTableActions } from "./personal-results-table-actions/PersonalResultsTableActions";
+import { IRaceLocation } from "@/components/locations-list/LocationsList.types";
 
 export type PersonalResultTableData = {
   id: string;
@@ -16,6 +17,7 @@ export type PersonalResultTableData = {
   time: string;
   result: IPersonalResult;
   distances: IRaceDistance[];
+  locations: IRaceLocation[];
 };
 
 export const columns: ColumnDef<PersonalResultTableData>[] = [

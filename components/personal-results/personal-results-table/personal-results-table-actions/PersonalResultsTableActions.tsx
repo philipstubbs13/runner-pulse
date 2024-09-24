@@ -43,6 +43,7 @@ export const PersonalResultsTableActions = (props: IProps) => {
       />
       <AddResultDialog
         distances={props.row.original.distances}
+        locations={props.row.original.locations}
         result={props.row.original.result}
       />
     </div>

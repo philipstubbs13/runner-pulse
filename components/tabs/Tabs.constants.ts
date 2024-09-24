@@ -5,6 +5,7 @@ export enum Tab {
   Settings = "settings",
   Stats = "/dashboard/stats",
   RaceDistances = "race-distances",
+  ManageLocations = "/settings/manage-locations",
 }
 
 export const tabLabels: Record<Tab, string> = {
@@ -14,6 +15,7 @@ export const tabLabels: Record<Tab, string> = {
   [Tab.Settings]: "Manage Photos",
   [Tab.Stats]: "Stats",
   [Tab.RaceDistances]: "Manage Race Distances",
+  [Tab.ManageLocations]: "Manage Locations",
 };
 
 export const tabDescriptions: Record<Tab, string> = {
@@ -23,6 +25,7 @@ export const tabDescriptions: Record<Tab, string> = {
   [Tab.Settings]: "Edit and delete your photos",
   [Tab.Stats]: "Analyze your running performance",
   [Tab.RaceDistances]: "Add or remove race distances for your results",
+  [Tab.ManageLocations]: "Add or remove race locations for your results",
 };
 
 export const tabTextColors: Record<Tab, string> = {
@@ -32,6 +35,7 @@ export const tabTextColors: Record<Tab, string> = {
   [Tab.Settings]: "text-blue-600",
   [Tab.Stats]: "text-purple-600",
   [Tab.RaceDistances]: "text-blue-600",
+  [Tab.ManageLocations]: "text-orange-600",
 };
 
 export const tabDescriptionColors: Record<Tab, string> = {
@@ -41,6 +45,7 @@ export const tabDescriptionColors: Record<Tab, string> = {
   [Tab.Settings]: "text-blue-100",
   [Tab.Stats]: "text-purple-100",
   [Tab.RaceDistances]: "text-blue-100",
+  [Tab.ManageLocations]: "text-orange-100",
 };
 
 export const tabBorderColors: Record<Tab, string> = {
@@ -50,6 +55,7 @@ export const tabBorderColors: Record<Tab, string> = {
   [Tab.Settings]: "border-blue-200",
   [Tab.Stats]: "border-purple-200",
   [Tab.RaceDistances]: "border-blue-200",
+  [Tab.ManageLocations]: "border-orange-200",
 };
 
 export const tabBackgroundColors: Record<Tab, string> = {
@@ -59,6 +65,7 @@ export const tabBackgroundColors: Record<Tab, string> = {
   [Tab.Settings]: "bg-blue-500",
   [Tab.Stats]: "bg-purple-500",
   [Tab.RaceDistances]: "bg-blue-500",
+  [Tab.ManageLocations]: "bg-orange-500",
 };
 
 export const tabHoverBackgroundColors: Record<Tab, string> = {
@@ -68,4 +75,5 @@ export const tabHoverBackgroundColors: Record<Tab, string> = {
   [Tab.Settings]: "hover:bg-blue-600",
   [Tab.Stats]: "hover:bg-purple-600",
   [Tab.RaceDistances]: "hover:bg-blue-600",
+  [Tab.ManageLocations]: "hover:bg-orange-600",
 };

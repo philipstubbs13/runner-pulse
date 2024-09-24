@@ -4,6 +4,7 @@ export interface IPersonalResult {
   id: string;
   race: string;
   raceDistance: string;
+  raceLocationId: string | null;
   state?: string;
   time: string;
 }

@@ -38,6 +38,12 @@ export const Footer = () => {
                       label="Upcoming Races"
                     />
                   </li>
+                  <li>
+                    <FooterQuickLink
+                      href={Routes.ManageRaceLocations}
+                      label="Manage Race Locations"
+                    />
+                  </li>
                 </ul>
                 <ul className="space-y-2">
                   <li>
