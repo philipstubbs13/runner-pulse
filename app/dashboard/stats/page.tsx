@@ -50,11 +50,13 @@ export default async function StagsPage() {
         return distancesToPlot;
       }
 
+      const averageTime = Number(averageTimeByDistance.toFixed(2));
+
       return [
         ...distancesToPlot,
         {
           distance: currentDistance.distance,
-          averageTime: Number(averageTimeByDistance.toFixed(2)),
+          averageTime,
         },
       ];
     },

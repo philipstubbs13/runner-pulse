@@ -9,6 +9,8 @@ import { IPhotoGalleryItem } from "@/components/photo-gallery/PhotoGallery.types
 import editRacePhoto from "@/app/actions/editRacePhoto";
 import deleteRacePhoto from "@/app/actions/deleteRacePhoto";
 import Image from "next/image";
+import { useToast } from "@/hooks/use-toast";
+import { ConfirmationDialog } from "../confirmation-dialog/ConfirmationDialog";
 
 interface IProps {
   /**
@@ -18,8 +20,11 @@ interface IProps {
 }
 
 export const EditPhotoCard = (props: IProps) => {
+  const { toast } = useToast();
   const [editingId, setEditingId] = useState<string>("");
   const [editCaption, setEditCaption] = useState<string>("");
+  const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
+    useState<boolean>(false);
 
   const handleEdit = (id: string, caption: string): void => {
     setEditingId(id);
@@ -28,11 +33,18 @@ export const EditPhotoCard = (props: IProps) => {
 
   const handleSave = async (id: string): Promise<void> => {
     await editRacePhoto(id, editCaption);
+    toast({
+      title: "Successfully edited photo",
+    });
     setEditingId("");
   };
 
   const handleDelete = async (id: string): Promise<void> => {
     await deleteRacePhoto(id);
+    toast({
+      title: "Successfully deleted photo",
+    });
+    setIsConfirmationDialogOpen(false);
   };
 
   return (
@@ -74,10 +86,17 @@ export const EditPhotoCard = (props: IProps) => {
             <Button
               variant="destructive"
               size="sm"
-              onClick={() => handleDelete(props.photo.id)}
+              onClick={() => setIsConfirmationDialogOpen(true)}
             >
               <Trash2 className="h-4 w-4" aria-label="Trash" />
             </Button>
+            <ConfirmationDialog
+              description={`This will permanently delete ${props.photo.caption}.`}
+              isOpen={isConfirmationDialogOpen}
+              title="Are you sure you want to delete?"
+              onClose={() => setIsConfirmationDialogOpen(false)}
+              onConfirm={() => handleDelete(props.photo.id)}
+            />
           </div>
           <p className="text-gray-700">{props.photo.caption}</p>
         </div>

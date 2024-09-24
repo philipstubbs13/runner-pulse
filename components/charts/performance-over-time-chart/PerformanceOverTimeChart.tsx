@@ -26,10 +26,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useEffect, useState } from "react";
+import { minutesToTime } from "@/utils/timeToMinutes";
 
 const chartConfig = {
   time: {
-    label: "Time (in minutes)",
+    label: "Time (HH:MM:SS)",
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
@@ -86,7 +87,7 @@ export const PerformanceOverTimeChart = (props: IProps) => {
             </SelectContent>
           </Select>
         </div>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} className="max-h-[450px] w-full">
           <LineChart
             accessibilityLayer
             data={chartData}
@@ -111,7 +112,10 @@ export const PerformanceOverTimeChart = (props: IProps) => {
                 });
               }}
             />
-            <YAxis dataKey="time" />
+            <YAxis
+              dataKey="time"
+              tickFormatter={(value) => minutesToTime(value)}
+            />
             <ChartTooltip
               content={
                 <ChartTooltipContent
@@ -126,6 +130,7 @@ export const PerformanceOverTimeChart = (props: IProps) => {
                   }}
                 />
               }
+              formatter={(value) => minutesToTime(Number(value))}
             />
             <ChartLegend content={<ChartLegendContent />} />
             <Line

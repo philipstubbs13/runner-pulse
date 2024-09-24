@@ -1,12 +1,11 @@
 "use client";
 
-import deleteRaceResult from "@/app/actions/deleteRaceResult";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { Trash2, ArrowUpDown } from "lucide-react";
-import { AddResultDialog } from "@/components/personal-results/add-result-dialog/AddResultDialog";
+import { ArrowUpDown } from "lucide-react";
 import { IPersonalResult } from "@/components/personal-results/PersonalResults.types";
 import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
+import { PersonalResultsTableActions } from "./personal-results-table-actions/PersonalResultsTableActions";
 
 export type PersonalResultTableData = {
   id: string;
@@ -22,7 +21,20 @@ export type PersonalResultTableData = {
 export const columns: ColumnDef<PersonalResultTableData>[] = [
   {
     accessorKey: "date",
-    header: () => <div className="text-blue-700">Date</div>,
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        <div className="text-blue-700">Date</div>
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    sortingFn: (a, b) => {
+      const dateA = new Date(a.getValue("date")).getTime();
+      const dateB = new Date(b.getValue("date")).getTime();
+      return dateA - dateB;
+    },
   },
   {
     accessorKey: "race",
@@ -84,20 +96,7 @@ export const columns: ColumnDef<PersonalResultTableData>[] = [
     accessorKey: "action",
     header: () => <div className="text-blue-700"></div>,
     cell: ({ row }) => {
-      return (
-        <div className="flex">
-          <Button
-            className="hover:text-blue-600"
-            onClick={() => deleteRaceResult(row.original.id)}
-          >
-            <Trash2 />
-          </Button>
-          <AddResultDialog
-            distances={row.original.distances}
-            result={row.original.result}
-          />
-        </div>
-      );
+      return <PersonalResultsTableActions row={row} />;
     },
   },
 ];

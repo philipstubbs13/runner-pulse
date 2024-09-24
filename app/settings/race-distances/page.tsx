@@ -6,6 +6,7 @@ import { Tab } from "@/components/tabs/Tabs.constants";
 import { db } from "@/lib/db";
 import { getSessionUser } from "@/utils/getSessionUser";
 import { RaceDistances as RaceDistancesList } from "@/components/race-distances/RaceDistances";
+import { LayoutContainer } from "@/components/layout-container/LayoutContainer";
 
 export default async function RaceDistances() {
   const session = await getSessionUser();
@@ -14,7 +15,7 @@ export default async function RaceDistances() {
   });
 
   return (
-    <div className="container mx-auto md:p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
+    <LayoutContainer>
       <Link
         href={Routes.Results}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-4"
@@ -29,6 +30,6 @@ export default async function RaceDistances() {
           </div>
         </div>
       </TabCard>
-    </div>
+    </LayoutContainer>
   );
 }

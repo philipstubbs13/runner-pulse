@@ -7,6 +7,7 @@ import { Routes } from "@/utils/router/Routes.constants";
 import { TabCard } from "@/components/tab-card/TabCard";
 import { Tab } from "@/components/tabs/Tabs.constants";
 import { NoResults } from "@/components/no-results/NoResults";
+import { LayoutContainer } from "@/components/layout-container/LayoutContainer";
 
 export default async function Settings() {
   const sessionUser = await getSessionUser();
@@ -16,7 +17,7 @@ export default async function Settings() {
   const hasPhotos = photos.length > 0;
 
   return (
-    <div className="md:p-4 bg-gradient-to-br from-blue-100 to-pink-100 min-h-screen">
+    <LayoutContainer>
       <Link
         href={Routes.Gallery}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-4"
@@ -41,6 +42,6 @@ export default async function Settings() {
           />
         )}
       </TabCard>
-    </div>
+    </LayoutContainer>
   );
 }

@@ -6,7 +6,9 @@ import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
 import deleteRaceDistance from "@/app/actions/deleteRaceDistance";
 import addRaceDistance from "@/app/actions/addRaceDistance";
 import { Input } from "@/components/ui/input";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { ConfirmationDialog } from "../confirmation-dialog/ConfirmationDialog";
 
 interface IProps {
   distances: IRaceDistance[];
@@ -14,13 +16,23 @@ interface IProps {
 
 export const RaceDistances = (props: IProps) => {
   const formRef = useRef<HTMLFormElement | null>(null);
+  const { toast } = useToast();
+  const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
+    useState<boolean>(false);
 
   const handleRemoveDistance = async (distanceId: string) => {
     await deleteRaceDistance(distanceId);
+    toast({
+      title: "Successfully deleted race distance",
+    });
+    setIsConfirmationDialogOpen(false);
   };
 
   const handleAddDistance = async (formData: FormData) => {
     await addRaceDistance(formData);
+    toast({
+      title: "Successfully added race distance",
+    });
 
     formRef.current?.reset();
   };
@@ -52,11 +64,18 @@ export const RaceDistances = (props: IProps) => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => handleRemoveDistance(distance.id)}
+              onClick={() => setIsConfirmationDialogOpen(true)}
               className="text-red-500 hover:text-red-700"
             >
               <Trash2 className="h-4 w-4" />
             </Button>
+            <ConfirmationDialog
+              description={`This will permanently delete ${distance.distance}.`}
+              isOpen={isConfirmationDialogOpen}
+              title="Are you sure you want to delete?"
+              onClose={() => setIsConfirmationDialogOpen(false)}
+              onConfirm={() => handleRemoveDistance(distance.id)}
+            />
           </div>
         ))}
       </div>

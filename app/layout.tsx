@@ -6,6 +6,7 @@ import { GlobalProvider } from "@/context/global-context/GlobalContext";
 import clsx from "clsx";
 import "photoswipe/dist/photoswipe.css";
 import { ReactNode } from "react";
+import { Toaster } from "@/components/ui/toaster";
 
 interface IProps {
   children: ReactNode;
@@ -24,7 +25,8 @@ export default function RootLayout(props: Readonly<IProps>) {
       <GlobalProvider>
         <html lang="en" className={"h-full"}>
           <body className={clsx(inter.className, "h-full")}>
-            {props.children}
+            <main>{props.children}</main>
+            <Toaster />
           </body>
         </html>
       </GlobalProvider>

@@ -7,13 +7,18 @@ import { Dialog } from "@/components/dialog/Dialog";
 import addRacePhoto from "@/app/actions/addRacePhoto";
 import { SubmitButton } from "@/components/buttons/submit-button/SubmitButton";
 import { Tab } from "@/components/tabs/Tabs.constants";
+import { useToast } from "@/hooks/use-toast";
 
 export const AddPhotoDialog = () => {
+  const { toast } = useToast();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dialogTitle = "Upload New Photo";
 
   const onSubmit = async (formData: FormData): Promise<void> => {
     await addRacePhoto(formData);
+    toast({
+      title: "Successfully uploaded photo",
+    });
     setIsOpen(false);
   };
 

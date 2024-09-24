@@ -30,6 +30,7 @@ import {
 import { IRaceDistance } from "@/components/race-distances/RaceDistances.types";
 import Link from "next/link";
 import { Routes } from "@/utils/router/Routes.constants";
+import { useToast } from "@/hooks/use-toast";
 
 interface IProps {
   /**
@@ -46,6 +47,7 @@ interface IProps {
 export const AddResultDialog = (props: IProps) => {
   const { distances = [] } = props;
   const [open, setOpen] = useState<boolean>(false);
+  const { toast } = useToast();
   const isEditingResult = props.result;
   const dialogTitle = props.result ? "Edit Result" : "Add Result";
   const time = props.result?.time || "";
@@ -58,8 +60,14 @@ export const AddResultDialog = (props: IProps) => {
   const onSubmit = async (formData: FormData) => {
     if (!isEditingResult) {
       await addRaceResult(formData);
+      toast({
+        title: "Successfully added personal race result",
+      });
     } else {
       await editRaceResult(resultIdToEdit, formData);
+      toast({
+        title: "Successfully updated personal race result",
+      });
     }
 
     setOpen(false);
