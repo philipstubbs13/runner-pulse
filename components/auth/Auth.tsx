@@ -40,7 +40,7 @@ export const Auth = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4 max-w-full bg-gradient-to-br from-blue-100 to-pink-100 flex items-center justify-center h-full">
+    <div className="container mx-auto p-4 max-w-full bg-gradient-to-br from-blue-100 to-pink-100 flex items-center justify-center h-screen">
       <Card className="w-[414px] bg-white bg-opacity-90 shadow-xl">
         <GradientContainer>
           <CardHeader className=" rounded-t-lg p-6 sm:p-8">

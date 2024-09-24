@@ -8,7 +8,8 @@ import addRaceDistance from "@/app/actions/addRaceDistance";
 import { Input } from "@/components/ui/input";
 import { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { ConfirmationDialog } from "../confirmation-dialog/ConfirmationDialog";
+import { ConfirmationDialog } from "@/components/confirmation-dialog/ConfirmationDialog";
+import { EditRaceDistanceDialog } from "@/components/race-distances/edit-race-distance-dialog/EditRaceDistanceDialog";
 
 interface IProps {
   distances: IRaceDistance[];
@@ -61,21 +62,27 @@ export const RaceDistances = (props: IProps) => {
             className="flex justify-between items-center bg-gray-100 p-2 rounded"
           >
             <span>{distance.distance}</span>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsConfirmationDialogOpen(true)}
-              className="text-red-500 hover:text-red-700"
-            >
-              <Trash2 className="h-4 w-4" />
-            </Button>
-            <ConfirmationDialog
-              description={`This will permanently delete ${distance.distance}.`}
-              isOpen={isConfirmationDialogOpen}
-              title="Are you sure you want to delete?"
-              onClose={() => setIsConfirmationDialogOpen(false)}
-              onConfirm={() => handleRemoveDistance(distance.id)}
-            />
+            <div>
+              <EditRaceDistanceDialog
+                distance={distance.distance}
+                id={distance.id}
+              />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsConfirmationDialogOpen(true)}
+                className="text-red-500 hover:text-red-700"
+              >
+                <Trash2 className="h-4 w-4" />
+              </Button>
+              <ConfirmationDialog
+                description={`This will permanently delete ${distance.distance}.`}
+                isOpen={isConfirmationDialogOpen}
+                title="Are you sure you want to delete?"
+                onClose={() => setIsConfirmationDialogOpen(false)}
+                onConfirm={() => handleRemoveDistance(distance.id)}
+              />
+            </div>
           </div>
         ))}
       </div>

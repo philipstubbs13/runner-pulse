@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Routes } from "@/utils/router/Routes.constants";
 import { ArrowLeft, MapPin } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -29,7 +30,7 @@ export default async function RaceDetailsPage(props: IProps) {
   return (
     <div className="container mx-auto p-4 bg-gradient-to-br from-green-100 to-blue-100 min-h-screen">
       <Link
-        href="/races"
+        href={Routes.Races}
         className="inline-flex items-center text-green-600 hover:text-green-800 mb-4"
       >
         <ArrowLeft className="mr-2 h-4 w-4" />
