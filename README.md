@@ -167,7 +167,7 @@ Follow these instructions to set up and run the project on your local machine.
 
    b. Copy the environment variables from `.env.example` into the `.env` file.
 
-Start the Next.js development server.
+5. Start the Next.js development server.
 
 ```bash
   npm run dev

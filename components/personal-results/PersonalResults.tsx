@@ -36,12 +36,17 @@ export const PersonalResults = async () => {
         />
       )}
       {!hasResults && (
-        <NoResults
-          Icon={Trophy}
-          description="Add your first race result to start tracking your progress!"
-          tab={Tab.Results}
-          title="No results yet"
-        />
+        <>
+          <div className="flex flex-col md:flex-row md:items-center mt-2">
+            <AddResultDialog distances={distances} locations={locations} />
+          </div>
+          <NoResults
+            Icon={Trophy}
+            description="Add your first race result to start tracking your progress!"
+            tab={Tab.Results}
+            title="No results yet"
+          />
+        </>
       )}
     </div>
   );
