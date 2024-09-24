@@ -5,6 +5,7 @@ export enum Routes {
   RaceDetails = "/dashboard/races/[id]",
   Races = "/dashboard/races",
   Results = "/dashboard/results",
+  Stats = "/dashboard/stats",
   ManagePhotos = "/settings/manage-photos",
   ManageRaceDistances = "/settings/race-distances",
 }

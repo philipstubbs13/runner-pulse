@@ -57,6 +57,23 @@ export const RacesActiveTab: Story = {
   ],
 };
 
+export const StatsActiveTab: Story = {
+  args: {},
+  decorators: [
+    (Story) => (
+      <GlobalContext.Provider
+        value={{
+          activeTab: Tab.Stats,
+          updateActiveTab: () => {},
+          shouldHideTabs: false,
+        }}
+      >
+        <Story />
+      </GlobalContext.Provider>
+    ),
+  ],
+};
+
 export const WithTabsHidden: Story = {
   args: {},
   decorators: [

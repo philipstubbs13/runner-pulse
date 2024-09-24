@@ -33,3 +33,9 @@ export const GalleryActiveTab: Story = {
     activeTab: Tab.Gallery,
   },
 };
+
+export const StatsActiveTab: Story = {
+  args: {
+    activeTab: Tab.Stats,
+  },
+};

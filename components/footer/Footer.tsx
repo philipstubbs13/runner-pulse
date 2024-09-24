@@ -47,6 +47,9 @@ export const Footer = () => {
                     />
                   </li>
                   <li>
+                    <FooterQuickLink href={Routes.Stats} label="Stats" />
+                  </li>
+                  <li>
                     <FooterQuickLink
                       href={Routes.ManagePhotos}
                       label="Manage Photos"

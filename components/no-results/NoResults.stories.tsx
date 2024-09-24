@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { NoResults } from "./NoResults";
-import { Camera, Trophy } from "lucide-react";
+import { BarChartIcon, Camera, Trophy } from "lucide-react";
 import { Tab } from "../tabs/Tabs.constants";
 
 /**
@@ -44,5 +44,14 @@ export const SettingsTab: Story = {
       "Upload your first running photo to start managing your gallery!",
     tab: Tab.Settings,
     title: "No photos yet",
+  },
+};
+
+export const StatsTab: Story = {
+  args: {
+    Icon: BarChartIcon,
+    description: "Add some race results to see your performance statistics.",
+    tab: Tab.Results,
+    title: "No Statistics Available",
   },
 };

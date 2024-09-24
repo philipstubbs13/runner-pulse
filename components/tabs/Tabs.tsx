@@ -36,6 +36,12 @@ export const Tabs = (props: PropsWithChildren<IProps>) => {
           >
             {tabLabels[Tab.Gallery]}
           </TabsTrigger>
+          <TabsTrigger
+            className="data-[state=active]:bg-purple-500 data-[state=active]:text-white"
+            value={Tab.Stats}
+          >
+            {tabLabels[Tab.Stats]}
+          </TabsTrigger>
         </TabsList>
       )}
       {props.children}

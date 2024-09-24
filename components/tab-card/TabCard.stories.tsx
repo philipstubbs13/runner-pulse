@@ -33,3 +33,9 @@ export const RacesTab: Story = {
     tab: Tab.Races,
   },
 };
+
+export const StatsTab: Story = {
+  args: {
+    tab: Tab.Stats,
+  },
+};
