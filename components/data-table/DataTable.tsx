@@ -21,10 +21,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Input } from "@/components/ui/input";
 
 interface DataTableProps<TData, TValue> {
+  beforeTableSlot?: ReactNode;
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
@@ -32,6 +33,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
+  beforeTableSlot,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -52,7 +54,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4">
+      <div className="flex sm:items-center sm:justify-between py-4 gap-2 sm:gap-0">
+        <div>{beforeTableSlot}</div>
         <Input
           placeholder="Filter by Race"
           value={(table.getColumn("race")?.getFilterValue() as string) ?? ""}

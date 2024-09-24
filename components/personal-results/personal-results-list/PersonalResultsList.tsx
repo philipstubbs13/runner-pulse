@@ -9,8 +9,10 @@ import {
 } from "@/components/personal-results/personal-results-table/Columns";
 import { DataTable } from "@/components/data-table/DataTable";
 import { IRaceLocation } from "@/components/locations-list/LocationsList.types";
+import { ReactNode } from "react";
 
 interface IProps {
+  beforeTableSlot?: ReactNode;
   /**
    * An array of objects representing the personal race results to be displayed in the table.
    */
@@ -38,5 +40,11 @@ export const PersonalResultsList = (props: IProps) => {
     locations: props.locations,
   }));
 
-  return <DataTable columns={columns} data={data} />;
+  return (
+    <DataTable
+      columns={columns}
+      data={data}
+      beforeTableSlot={props.beforeTableSlot}
+    />
+  );
 };
