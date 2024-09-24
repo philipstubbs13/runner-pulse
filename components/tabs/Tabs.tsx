@@ -5,19 +5,17 @@ import { Tabs as UiTabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PropsWithChildren } from "react";
 import { Tab, tabLabels } from "@/components/tabs/Tabs.constants";
 
-interface IProps {}
-
-export const Tabs = (props: PropsWithChildren<IProps>) => {
+export const Tabs = (props: PropsWithChildren) => {
   const { activeTab, updateActiveTab, shouldHideTabs } = useGlobalContext();
 
   return (
     <UiTabs
-      className="space-y-4"
+      className="space-y-4 xs:hidden sm:hidden md:block"
       defaultValue={activeTab as Tab}
       onValueChange={(value: string) => updateActiveTab(value as Tab)}
     >
       {!shouldHideTabs && (
-        <TabsList className="bg-white bg-opacity-50 p-1 rounded-lg">
+        <TabsList className=" bg-opacity-50 p-1 rounded-lg flex items-center justify-start flex-wrap h-auto space-y-1">
           <TabsTrigger
             className="data-[state=active]:bg-blue-500 data-[state=active]:text-white"
             value={Tab.Results}
