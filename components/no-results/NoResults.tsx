@@ -13,9 +13,9 @@ interface IProps {
   // eslint-disable-next-line
   Icon: ComponentType<any>;
   /**
-   * Indicates which tab is active; can be either `Tab.Results` or `Tab.Gallery`.
+   * Indicates which tab is active.
    */
-  tab: Tab.Results | Tab.Gallery | Tab.Settings;
+  tab: Tab.Results | Tab.Gallery | Tab.Settings | Tab.Stats;
   /**
    * The title or heading for the no results message.
    */
@@ -32,6 +32,7 @@ export const NoResults = (props: IProps) => {
           "text-center py-10 rounded-lg w-full": true,
           "bg-blue-50": props.tab === Tab.Results || props.tab === Tab.Settings,
           "bg-pink-50": props.tab === Tab.Gallery,
+          "bg-purple-50": props.tab === Tab.Stats,
         })}
       >
         <Icon
@@ -40,6 +41,7 @@ export const NoResults = (props: IProps) => {
             "text-blue-300":
               props.tab === Tab.Results || props.tab === Tab.Settings,
             "text-pink-300": props.tab === Tab.Gallery,
+            "text-purple-300": props.tab === Tab.Stats,
           })}
         />
         <h3
@@ -48,6 +50,7 @@ export const NoResults = (props: IProps) => {
             "text-blue-700":
               props.tab === Tab.Results || props.tab === Tab.Settings,
             "text-pink-700": props.tab === Tab.Gallery,
+            "text-purple-700": props.tab === Tab.Stats,
           })}
         >
           {props.title}
@@ -57,6 +60,7 @@ export const NoResults = (props: IProps) => {
             "text-blue-600":
               props.tab === Tab.Results || props.tab === Tab.Settings,
             "text-pink-600": props.tab === Tab.Gallery,
+            "text-purple-700": props.tab === Tab.Stats,
           })}
         >
           {props.description}

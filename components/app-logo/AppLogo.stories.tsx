@@ -24,7 +24,7 @@ export const Small: Story = {
   },
 };
 
-export const DarkBackground: Story = {
+export const WithLightBackground: Story = {
   args: {
     backgroundColor: "#fff",
   },

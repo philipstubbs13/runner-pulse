@@ -51,7 +51,7 @@ export const StatsTab: Story = {
   args: {
     Icon: BarChartIcon,
     description: "Add some race results to see your performance statistics.",
-    tab: Tab.Results,
+    tab: Tab.Stats,
     title: "No Statistics Available",
   },
 };

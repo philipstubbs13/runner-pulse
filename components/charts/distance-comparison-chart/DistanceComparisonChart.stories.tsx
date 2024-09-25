@@ -5,7 +5,7 @@ import { IDistanceComparisonChartData } from "./DistanceComparisonChart.types";
 
 /**
  * The `DistanceComparisonChart` component is a bar chart that visualizes the average time taken
- * (in minutes) across different race distances. It's built using the `recharts` library and styled
+ * across different race distances. It's built using the `recharts` library and styled
  * within a card layout, making it suitable for dashboards or performance tracking interfaces.
  */
 const meta = {

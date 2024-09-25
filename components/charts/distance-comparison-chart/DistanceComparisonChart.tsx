@@ -1,14 +1,6 @@
 "use client";
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -17,8 +9,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { IDistanceComparisonChartData } from "./DistanceComparisonChart.types";
+import { IDistanceComparisonChartData } from "@/components/charts/distance-comparison-chart/DistanceComparisonChart.types";
 import { minutesToTime } from "@/utils/timeToMinutes";
+import { ChartCard } from "@/components/charts/chart-card/ChartCard";
 
 const chartConfig = {
   averageTime: {
@@ -29,41 +22,36 @@ const chartConfig = {
 
 interface IProps {
   /**
-   * An array of data objects where each object contains `distance` (race distance) and `averageTime` (time in minutes).
+   * An array of data objects where each object contains `distance` (race distance) and `averageTime`.
    */
   distanceComparisonData: IDistanceComparisonChartData[];
 }
 
 export const DistanceComparisonChart = (props: IProps) => {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Average Time By Distance</CardTitle>
-        <CardDescription>
-          Compare your average times (HH:MM:SS) across different race distances
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig} className="max-h-[450px] w-full">
-          <BarChart
-            accessibilityLayer
-            data={props.distanceComparisonData}
-            margin={{
-              top: 20,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="distance" />
-            <YAxis tickFormatter={(value) => minutesToTime(value)} />
-            <ChartTooltip
-              content={<ChartTooltipContent />}
-              formatter={(value) => minutesToTime(Number(value))}
-            />
-            <ChartLegend content={<ChartLegendContent />} />
-            <Bar dataKey="averageTime" fill="#10B981" radius={8} />
-          </BarChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+    <ChartCard
+      description="Compare your average times (HH:MM:SS) across different race distances"
+      title="Average Time By Distance"
+    >
+      <ChartContainer config={chartConfig} className="max-h-[450px] w-full">
+        <BarChart
+          accessibilityLayer
+          data={props.distanceComparisonData}
+          margin={{
+            top: 20,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="distance" />
+          <YAxis tickFormatter={(value) => minutesToTime(value)} />
+          <ChartTooltip
+            content={<ChartTooltipContent />}
+            formatter={(value) => minutesToTime(Number(value))}
+          />
+          <ChartLegend content={<ChartLegendContent />} />
+          <Bar dataKey="averageTime" fill="#10B981" radius={8} />
+        </BarChart>
+      </ChartContainer>
+    </ChartCard>
   );
 };

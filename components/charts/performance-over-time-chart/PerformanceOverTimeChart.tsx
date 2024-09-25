@@ -1,14 +1,6 @@
 "use client";
 
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -17,7 +9,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { IPerformanceOverTimeChartData } from "./PerformanceOverTimeChart.types";
+import { IPerformanceOverTimeChartData } from "@/components/charts/performance-over-time-chart/PerformanceOverTimeChart.types";
 import {
   Select,
   SelectContent,
@@ -27,6 +19,7 @@ import {
 } from "@/components/ui/select";
 import { useEffect, useState } from "react";
 import { minutesToTime } from "@/utils/timeToMinutes";
+import { ChartCard } from "@/components/charts/chart-card/ChartCard";
 
 const chartConfig = {
   time: {
@@ -62,86 +55,76 @@ export const PerformanceOverTimeChart = (props: IProps) => {
   }, [selectedDistance, props.performanceData]);
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{selectedDistance} Performance Over Time</CardTitle>
-        <CardDescription>
-          Track your {selectedDistance} race times throughout the year
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="mb-4">
-          <Select
-            value={selectedDistance}
-            onValueChange={(value) => setSelectedDistance(value)}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select distance" />
-            </SelectTrigger>
-            <SelectContent style={{ backgroundColor: "#fff" }}>
-              {distances.map((distance) => (
-                <SelectItem key={distance} value={distance}>
-                  {distance}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <ChartContainer config={chartConfig} className="max-h-[450px] w-full">
-          <LineChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
+    <ChartCard
+      description={`Track your ${selectedDistance} race times throughout the year`}
+      title={`${selectedDistance} Performance Over Time`}
+    >
+      <div className="mb-4">
+        <Select
+          value={selectedDistance}
+          onValueChange={(value) => setSelectedDistance(value)}
+        >
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select distance" />
+          </SelectTrigger>
+          <SelectContent style={{ backgroundColor: "#fff" }}>
+            {distances.map((distance) => (
+              <SelectItem key={distance} value={distance}>
+                {distance}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <ChartContainer config={chartConfig} className="max-h-[450px] w-full">
+        <LineChart
+          accessibilityLayer
+          data={chartData}
+          margin={{
+            left: 12,
+            right: 12,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="date"
+            tickLine={false}
+            axisLine={false}
+            tickMargin={8}
+            minTickGap={32}
+            tickFormatter={(value) => {
+              const date = new Date(value);
+              return date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              });
             }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="date"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              minTickGap={32}
-              tickFormatter={(value) => {
-                const date = new Date(value);
-                return date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                });
-              }}
-            />
-            <YAxis
-              dataKey="time"
-              tickFormatter={(value) => minutesToTime(value)}
-            />
-            <ChartTooltip
-              content={
-                <ChartTooltipContent
-                  className="w-[150px]"
-                  nameKey="views"
-                  labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    });
-                  }}
-                />
-              }
-              formatter={(value) => minutesToTime(Number(value))}
-            />
-            <ChartLegend content={<ChartLegendContent />} />
-            <Line
-              dataKey={"time"}
-              type="monotone"
-              strokeWidth={2}
-              dot={false}
-            />
-          </LineChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+          />
+          <YAxis
+            dataKey="time"
+            tickFormatter={(value) => minutesToTime(value)}
+          />
+          <ChartTooltip
+            content={
+              <ChartTooltipContent
+                className="w-[150px]"
+                nameKey="views"
+                labelFormatter={(value) => {
+                  return new Date(value).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  });
+                }}
+              />
+            }
+            formatter={(value) => minutesToTime(Number(value))}
+          />
+          <ChartLegend content={<ChartLegendContent />} />
+          <Line dataKey={"time"} type="monotone" strokeWidth={2} dot={false} />
+        </LineChart>
+      </ChartContainer>
+    </ChartCard>
   );
 };

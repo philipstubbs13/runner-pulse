@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "./Avatar";
 
 /**
- * The Avatar component is used to display a user's profile image.
+ * The `Avatar` component is used to display a user's profile image.
  * If no image is provided, it falls back to displaying the initials of the user’s name.
  */
 const meta = {
