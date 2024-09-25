@@ -31,6 +31,7 @@ import Link from "next/link";
 import { Routes } from "@/utils/router/Routes.constants";
 import { useToast } from "@/hooks/use-toast";
 import { IRaceLocation } from "@/components/locations-list/LocationsList.types";
+import { formatISODate } from "@/utils/formatISODate";
 
 interface IProps {
   /**
@@ -60,6 +61,17 @@ export const AddResultDialog = (props: IProps) => {
   const hoursValues = getHoursValues();
   const minutesValues = getMinutesOrSecondsValues();
   const secondsValues = getMinutesOrSecondsValues();
+  let date: string | undefined = undefined;
+
+  if (props.result?.date) {
+    const isoDateString = formatISODate(props.result?.date.toISOString() || "");
+    // yyyy-mm-dd
+    date = new Intl.DateTimeFormat("en-CA", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(new Date(isoDateString));
+  }
 
   const onSubmit = async (formData: FormData) => {
     if (!isEditingResult) {
@@ -102,15 +114,7 @@ export const AddResultDialog = (props: IProps) => {
         <div className="grid md:grid-cols-2 gap-2">
           <Input
             className="border-blue-300 focus:border-blue-500"
-            defaultValue={
-              props.result?.date
-                ? new Intl.DateTimeFormat("en-CA", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  }).format(props.result?.date)
-                : undefined
-            }
+            defaultValue={date}
             name="date"
             placeholder="Date"
             required={true}

@@ -27,6 +27,7 @@ Runner Pulse is a comprehensive web application designed for passionate runners 
   - [Technical Highlights](#highlights)
   - [My Expertise](#expertise)
 - [Getting Started](#getting-started)
+- [Prisma ORM](#prisma)
 - [Running Storybook](#running-storybook)
 - [Running Tests](#running-tests)
 - [Deployment](#deployment)
@@ -183,6 +184,50 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+## <a name="prisma"></a>Prisma ORM
+
+This project uses [Prisma](https://www.prisma.io/docs/getting-started), which is a Node.js and TypeScript ORM (Object Relational Mapper) used to model data, run schema migrations, and query the database (MongoDB).
+
+### Making Schema Changes
+
+The Prisma schema file for this project is located at `prisma/schema.prisma`.
+
+If you need to make changes to the database schema:
+
+1. Update `prisma/schema.prisma` with your changes.
+
+2. In the root directory of the project, run `npx prisma db format` to validate, format, and persist the schema
+
+3. In the root directory of the project, run `npx prisma db push` to push the state of your Prisma schema to the database without using migrations.
+
+4. In the root directory of the project, run `npm run ts` to verify that there are no typescript errors for the project.
+
+### Benefits of Using Prisma:
+
+- Type-Safety
+  Prisma generates fully type-safe queries for TypeScript, ensuring that database queries are validated at compile time. This reduces runtime errors and improves developer productivity by leveraging IDE autocompletion and error checking.
+
+- Readable and Maintainable Queries
+  Prisma provides a high-level, readable API for database operations, making it easier to write and understand complex queries without diving into specific database syntax. This results in cleaner, more maintainable code.
+
+- Database Agnostic
+  Prisma supports multipledatabases like PostgreSQL, MySQL, SQLite, SQL Server, and MongoDB. This flexibility allows you to switch databases with minimal configuration changes. For this project, the database is MongoDB.
+
+- Automatic Migrations
+  Prisma automatically generates migration files based on changes to your data models, making schema changes easier to track and manage across environments. You can apply and revert migrations safely, ensuring consistency in your database structure.
+
+- Efficient Querying
+  Prisma optimizes query performance by reducing the number of round-trips to the database and providing smart query batching techniques, improving overall application performance.
+
+- Modern Tooling & Ecosystem
+  Prisma integrates seamlessly with modern technologies like GraphQL, REST, and serverless architectures, offering a powerful toolset for full-stack applications.
+
+- Collaborative with TypeScript
+  While working in a TypeScript codebase, Prisma enhances collaboration between front-end and back-end by creating shared types and making the database layer more predictable and consistent.
+
+- Comprehensive Documentation & Community
+  Prisma comes with extensive documentation, tutorials, and a growing community, making it easier for teams to get up to speed and troubleshoot issues.
 
 ## <a name="running-storybook"></a>Running Storybook
 
