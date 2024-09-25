@@ -5,6 +5,7 @@
     "plugin:storybook/recommended"
   ],
   "rules": {
-    "no-var": "off"
+    "no-var": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

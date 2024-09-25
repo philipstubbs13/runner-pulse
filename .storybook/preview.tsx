@@ -19,6 +19,9 @@ const preview: Preview = {
       ],
       default: "light",
     },
+    nextjs: {
+      appDirectory: true,
+    },
   },
   decorators: [
     (Story) => (

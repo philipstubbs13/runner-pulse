@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { LogOut, MapPinHouse, Route, Settings } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useGlobalContext } from "@/context/global-context/GlobalContext";
 import { Tab } from "@/components/tabs/Tabs.constants";
@@ -19,13 +19,12 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
-import { useRouter } from "next/navigation";
-import { Routes } from "@/utils/router/Routes.constants";
+import { SettingsButton } from "../buttons/settings-button/SettingsButton";
+import { SettingsButtonVariant } from "../buttons/settings-button/SettingsButton.constants";
 
 export const Header = () => {
   const { activeTab, updateActiveTab } = useGlobalContext();
   const { data: session } = useSession();
-  const router = useRouter();
   const userImage = session?.user?.image || undefined;
   const userName = session?.user?.name || "";
   const userEmail = session?.user?.email || "";
@@ -75,30 +74,15 @@ export const Header = () => {
                   <p className="text-sm text-gray-500">{userEmail}</p>
                 </div>
               </div>
-              <Button
-                onClick={() => router.push(Routes.ManagePhotos)}
-                variant="outline"
-                className="w-full mb-2"
-              >
-                <Settings className="mr-2 h-4 w-4" />
-                Manage Photos
-              </Button>
-              <Button
-                onClick={() => router.push(Routes.ManageRaceDistances)}
-                variant="outline"
-                className="w-full mb-2"
-              >
-                <Route className="mr-2 h-4 w-4" />
-                Manage Race Distances
-              </Button>
-              <Button
-                onClick={() => router.push(Routes.ManageRaceLocations)}
-                variant="outline"
-                className="w-full mb-2"
-              >
-                <MapPinHouse className="mr-2 h-4 w-4" />
-                Manage Race Locations
-              </Button>
+              <div className="space-y-4 my-6">
+                <SettingsButton variant={SettingsButtonVariant.ManagePhotos} />
+                <SettingsButton
+                  variant={SettingsButtonVariant.ManageRaceDistances}
+                />
+                <SettingsButton
+                  variant={SettingsButtonVariant.ManageRaceLocations}
+                />
+              </div>
               <Button
                 onClick={handleLogout}
                 className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
