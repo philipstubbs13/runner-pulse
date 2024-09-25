@@ -205,28 +205,28 @@ If you need to make changes to the database schema:
 
 ### Benefits of Using Prisma:
 
-- Type-Safety
+- **Type-Safety**.
   Prisma generates fully type-safe queries for TypeScript, ensuring that database queries are validated at compile time. This reduces runtime errors and improves developer productivity by leveraging IDE autocompletion and error checking.
 
-- Readable and Maintainable Queries
+- **Readable and Maintainable Queries**.
   Prisma provides a high-level, readable API for database operations, making it easier to write and understand complex queries without diving into specific database syntax. This results in cleaner, more maintainable code.
 
-- Database Agnostic
+- **Database Agnostic**.
   Prisma supports multipledatabases like PostgreSQL, MySQL, SQLite, SQL Server, and MongoDB. This flexibility allows you to switch databases with minimal configuration changes. For this project, the database is MongoDB.
 
-- Automatic Migrations
+- **Automatic Migrations**.
   Prisma automatically generates migration files based on changes to your data models, making schema changes easier to track and manage across environments. You can apply and revert migrations safely, ensuring consistency in your database structure.
 
-- Efficient Querying
+- **Efficient Querying**.
   Prisma optimizes query performance by reducing the number of round-trips to the database and providing smart query batching techniques, improving overall application performance.
 
-- Modern Tooling & Ecosystem
+- **Modern Tooling & Ecosystem**.
   Prisma integrates seamlessly with modern technologies like GraphQL, REST, and serverless architectures, offering a powerful toolset for full-stack applications.
 
-- Collaborative with TypeScript
+- **Collaborative with TypeScript**.
   While working in a TypeScript codebase, Prisma enhances collaboration between front-end and back-end by creating shared types and making the database layer more predictable and consistent.
 
-- Comprehensive Documentation & Community
+- **Comprehensive Documentation & Community**.
   Prisma comes with extensive documentation, tutorials, and a growing community, making it easier for teams to get up to speed and troubleshoot issues.
 
 ## <a name="running-storybook"></a>Running Storybook
