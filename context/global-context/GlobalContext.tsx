@@ -10,6 +10,8 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { Tab } from "@/components/tabs/Tabs.constants";
 import { shouldHideDashboardTabs } from "@/components/tabs/Tabs.utils";
+import { useSession } from "next-auth/react";
+import { ISessionUser } from "@/components/auth/Auth.types";
 
 export interface IGlobalContext {
   activeTab: Tab | null;

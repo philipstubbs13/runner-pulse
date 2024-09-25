@@ -17,6 +17,9 @@ import { states } from "../personal-results/PersonalResults.constants";
 import addRaceLocation from "@/app/actions/addRaceLocation";
 import { IRaceLocation } from "./LocationsList.types";
 import deleteRaceLocation from "@/app/actions/deleteRaceLocation";
+import { EditRaceLocationDialog } from "./edit-race-location-dialog/EditRaceLocationDialog";
+import getRaceResultsAssociatedWithLocation from "@/app/actions/getRaceResultsAssociatedWithLocation";
+import { LocationInUseDialog } from "./location-in-use-dialog/LocationInUseDialog";
 
 interface IProps {
   locations: IRaceLocation[];
@@ -27,6 +30,8 @@ export const LocationsList = (props: IProps) => {
   const selectRef = useRef<HTMLSelectElement | null>(null);
   const { toast } = useToast();
   const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
+    useState<boolean>(false);
+  const [isLocationInUseDialogOpen, setIsLocationInUseDialogOpen] =
     useState<boolean>(false);
 
   const handleRemoveLocation = async (locationId: string) => {
@@ -47,6 +52,19 @@ export const LocationsList = (props: IProps) => {
     if (selectRef.current) {
       selectRef.current.value = "";
     }
+  };
+
+  const confirmDeleteLocation = async (locationId: string) => {
+    const { resultsAssociatedWithLocation } =
+      await getRaceResultsAssociatedWithLocation(locationId);
+
+    if (resultsAssociatedWithLocation.length) {
+      setIsLocationInUseDialogOpen(true);
+
+      return;
+    }
+
+    setIsConfirmationDialogOpen(true);
   };
 
   return (
@@ -83,37 +101,46 @@ export const LocationsList = (props: IProps) => {
         </Button>
       </form>
       <div className="space-y-2">
-        {props.locations.map((location, index) => (
-          <div
-            key={index}
-            className="flex justify-between items-center bg-gray-100 p-2 rounded"
-          >
-            <span>
-              {location.city}, {location.state}
-            </span>
-            <div>
-              {/* <EditRaceDistanceDialog
-                distance={distance.distance}
-                id={distance.id}
-              /> */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsConfirmationDialogOpen(true)}
-                className="text-red-500 hover:text-red-700"
-              >
-                <Trash2 className="h-4 w-4" />
-              </Button>
-              <ConfirmationDialog
-                description={`This will permanently delete ${location.city}, ${location.state}.`}
-                isOpen={isConfirmationDialogOpen}
-                title="Are you sure you want to delete?"
-                onClose={() => setIsConfirmationDialogOpen(false)}
-                onConfirm={() => handleRemoveLocation(location.id)}
-              />
+        {props.locations.map((location) => {
+          const description = `This will permanently delete the location.`;
+
+          return (
+            <div
+              key={`${location.city}-${location.state}=${location.id}`}
+              className="flex justify-between items-center bg-gray-100 p-2 rounded"
+            >
+              <span>
+                {location.city}, {location.state}
+              </span>
+              <div>
+                <EditRaceLocationDialog
+                  city={location.city}
+                  state={location.state}
+                  locationId={location.id}
+                />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => confirmDeleteLocation(location.id)}
+                  className="text-red-500 hover:text-red-700"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+                <ConfirmationDialog
+                  description={description}
+                  isOpen={isConfirmationDialogOpen}
+                  title="Are you sure you want to delete?"
+                  onClose={() => setIsConfirmationDialogOpen(false)}
+                  onConfirm={() => handleRemoveLocation(location.id)}
+                />
+                <LocationInUseDialog
+                  isOpen={isLocationInUseDialogOpen}
+                  onClose={() => setIsLocationInUseDialogOpen(false)}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </>
   );

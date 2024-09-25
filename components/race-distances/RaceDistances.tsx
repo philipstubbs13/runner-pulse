@@ -76,7 +76,9 @@ export const RaceDistances = (props: IProps) => {
                 <Trash2 className="h-4 w-4" />
               </Button>
               <ConfirmationDialog
-                description={`This will permanently delete ${distance.distance}.`}
+                description={
+                  "This will permanently delete the selected race distance"
+                }
                 isOpen={isConfirmationDialogOpen}
                 title="Are you sure you want to delete?"
                 onClose={() => setIsConfirmationDialogOpen(false)}

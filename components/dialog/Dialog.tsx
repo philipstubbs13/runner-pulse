@@ -16,15 +16,15 @@ interface IProps extends ComponentProps<typeof UiDialog> {
   /**
    * The text displayed in the dialog's header. This is the main title of the dialog box.
    */
-  title: string;
+  title: string | ReactNode;
   /**
-   * Determines the color of the dialog title. Accepts either "pink" or "blue".
+   * Determines the color of the dialog title.
    */
-  titleColor: "pink" | "blue";
+  titleColor: "pink" | "blue" | "orange";
   /**
    * A React element that serves as the trigger to open the dialog.
    */
-  trigger: ReactNode;
+  trigger?: ReactNode;
 }
 
 export const Dialog = (props: PropsWithChildren<IProps>) => {
@@ -37,6 +37,7 @@ export const Dialog = (props: PropsWithChildren<IProps>) => {
             className={clsx({
               "text-pink-600": props.titleColor === "pink",
               "text-blue-600": props.titleColor === "blue",
+              "text-orange-600": props.titleColor === "orange",
             })}
           >
             {props.title}
