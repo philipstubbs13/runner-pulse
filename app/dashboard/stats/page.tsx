@@ -6,6 +6,7 @@ import { RaceDistributionByCityChart } from "@/components/charts/race-distributi
 import { IRaceDistributionByCityChartData } from "@/components/charts/race-distribution-by-city-chart/RaceDistributionByCityChart.types";
 import { NoResults } from "@/components/no-results/NoResults";
 import { TabCard } from "@/components/tab-card/TabCard";
+import { Tabs } from "@/components/tabs/Tabs";
 import { Tab } from "@/components/tabs/Tabs.constants";
 import { db } from "@/lib/db";
 import { getRandomColor } from "@/utils/getRandomColor";
@@ -86,30 +87,32 @@ export default async function StagsPage() {
   });
 
   return (
-    <TabCard tab={Tab.Stats}>
-      {!hasResults && (
-        <NoResults
-          Icon={BarChartIcon}
-          description="Add some race results to see your performance statistics."
-          tab={Tab.Results}
-          title="No Statistics Available"
-        />
-      )}
-      {hasResults && (
-        <>
-          <DistanceComparisonChart
-            distanceComparisonData={distanceComparisonData}
+    <Tabs>
+      <TabCard tab={Tab.Stats}>
+        {!hasResults && (
+          <NoResults
+            Icon={BarChartIcon}
+            description="Add some race results to see your performance statistics."
+            tab={Tab.Results}
+            title="No Statistics Available"
           />
-          <div className="mt-8">
-            <RaceDistributionByCityChart
-              raceDistributionData={raceDistributionData}
+        )}
+        {hasResults && (
+          <>
+            <DistanceComparisonChart
+              distanceComparisonData={distanceComparisonData}
             />
-          </div>
-          <div className="mt-8">
-            <PerformanceOverTimeChart performanceData={performanceData} />
-          </div>
-        </>
-      )}
-    </TabCard>
+            <div className="mt-8">
+              <RaceDistributionByCityChart
+                raceDistributionData={raceDistributionData}
+              />
+            </div>
+            <div className="mt-8">
+              <PerformanceOverTimeChart performanceData={performanceData} />
+            </div>
+          </>
+        )}
+      </TabCard>
+    </Tabs>
   );
 }

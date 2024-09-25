@@ -1,22 +1,14 @@
-import { getTitleColor } from "@/utils/getTitleColor";
-import { Tab } from "@/components/tabs/Tabs.constants";
 import { AppLogo } from "../app-logo/AppLogo";
-import clsx from "clsx";
 
-interface IProps {
-  activeTab: Tab | null;
-}
-
-export const PageHeading = (props: IProps) => {
+export const PageHeading = () => {
   return (
     <div
-      className={clsx({
-        [getTitleColor(props.activeTab)]: true,
-        "flex items-center gap-2": true,
-      })}
+      className={
+        "flex items-center gap-2 text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-pink-500 text-transparent bg-clip-text"
+      }
       data-testid="page-heading-container"
     >
-      <AppLogo size={"small"} />
+      <AppLogo size={"small"} data-testid="app-logo" />
       <h1 className={"text-4xl font-bold transition-colors duration-300"}>
         Runner Pulse
       </h1>

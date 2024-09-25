@@ -1,5 +1,5 @@
 "use client";
-import PacmanLoader from "react-spinners/PacmanLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const override = {
   display: "block",
@@ -25,7 +25,7 @@ export const Loader = (props: IProps) => {
   const { color = "#ec4899", size = 50 } = props;
 
   return (
-    <PacmanLoader
+    <BeatLoader
       color={color}
       cssOverride={override}
       size={size}

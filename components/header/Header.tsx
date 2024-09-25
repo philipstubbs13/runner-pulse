@@ -23,7 +23,7 @@ import { SettingsButton } from "../buttons/settings-button/SettingsButton";
 import { SettingsButtonVariant } from "../buttons/settings-button/SettingsButton.constants";
 
 export const Header = () => {
-  const { activeTab, updateActiveTab } = useGlobalContext();
+  const { updateActiveTab } = useGlobalContext();
   const { data: session } = useSession();
   const userImage = session?.user?.image || undefined;
   const userName = session?.user?.name || "";
@@ -36,7 +36,7 @@ export const Header = () => {
 
   return (
     <div className="flex justify-around sm:justify-between items-center mb-6 pt-4">
-      <PageHeading activeTab={activeTab} />
+      <PageHeading />
       <div className="flex items-center space-x-4">
         <Sheet>
           <SheetTrigger asChild>
