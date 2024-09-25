@@ -33,3 +33,15 @@ export const SubmitButtonOnGalleryTab: Story = {
     tab: Tab.Gallery,
   },
 };
+
+export const SubmitButtonOnStatsTab: Story = {
+  args: {
+    tab: Tab.Stats,
+  },
+};
+
+export const SubmitButtonOnManageLocationsTab: Story = {
+  args: {
+    tab: Tab.ManageLocations,
+  },
+};
