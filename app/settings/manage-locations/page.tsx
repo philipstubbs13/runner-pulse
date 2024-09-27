@@ -12,6 +12,11 @@ export default async function ManageLocationsPage() {
   const session = await getSessionUser();
   const locations = await db.raceLocation.findMany({
     where: { userId: session?.userId },
+    orderBy: [
+      {
+        city: "asc",
+      },
+    ],
   });
 
   return (

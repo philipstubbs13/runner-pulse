@@ -37,11 +37,15 @@ export const EditRaceDistanceDialog = (props: IProps) => {
       titleColor={"blue"}
       trigger={
         <Button size="sm">
-          <Pencil className="h-4 w-4" />
+          <Pencil className="h-4 w-4" data-testid="edit-race-distance-icon" />
         </Button>
       }
     >
-      <form action={onSubmit} className="space-y-4">
+      <form
+        action={onSubmit}
+        className="space-y-4"
+        data-testid="edit-race-distance-form"
+      >
         <Input
           className="border-blue-300 focus:border-blue-500"
           defaultValue={props.distance}

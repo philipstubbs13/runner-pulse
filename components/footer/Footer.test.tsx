@@ -7,7 +7,7 @@ describe("Footer", () => {
     render(<Footer />);
 
     expect(screen.getAllByText(/runner pulse/i)).toHaveLength(2);
-    expect(screen.getAllByRole("link")).toHaveLength(12);
+    expect(screen.getAllByRole("link")).toHaveLength(14);
   });
 
   test("should display the current year in the footer", () => {

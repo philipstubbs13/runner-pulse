@@ -29,7 +29,10 @@ export const AddPhotoDialog = () => {
       title={dialogTitle}
       titleColor={"pink"}
       trigger={
-        <Button className="bg-pink-500 hover:bg-pink-600 text-white">
+        <Button
+          className="bg-pink-500 hover:bg-pink-600 text-white"
+          data-testid="upload-photo-icon"
+        >
           Upload Photo
         </Button>
       }

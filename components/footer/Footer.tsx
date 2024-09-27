@@ -70,33 +70,60 @@ export const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div>
-              <h4 className="text-md font-semibold mb-4">Connect With Me</h4>
-              <div className="flex space-x-4">
-                <FooterSocialLink
-                  href="https://www.facebook.com/phil.stubbs.13/"
-                  label="Facebook"
-                >
-                  <Facebook size={20} />
-                </FooterSocialLink>
-                <FooterSocialLink
-                  href="https://x.com/iamPhilStubbs"
-                  label="Twitter"
-                >
-                  <Twitter size={20} />
-                </FooterSocialLink>
-                <FooterSocialLink
-                  href="https://www.instagram.com/philipstubbs13/"
-                  label="Instagram"
-                >
-                  <Instagram size={20} />
-                </FooterSocialLink>
-                <FooterSocialLink
-                  href="mailto:philipstubbs13@gmail.com"
-                  label="Email"
-                >
-                  <Mail size={20} />
-                </FooterSocialLink>
+            <div className="flex flex-col gap-8">
+              <div>
+                <h4 className="text-md font-semibold mb-4">Connect With Me</h4>
+                <div className="flex space-x-4">
+                  <FooterSocialLink
+                    href="https://www.facebook.com/phil.stubbs.13/"
+                    label="Facebook"
+                  >
+                    <Facebook size={20} />
+                  </FooterSocialLink>
+                  <FooterSocialLink
+                    href="https://x.com/iamPhilStubbs"
+                    label="Twitter"
+                  >
+                    <Twitter size={20} />
+                  </FooterSocialLink>
+                  <FooterSocialLink
+                    href="https://www.instagram.com/philipstubbs13/"
+                    label="Instagram"
+                  >
+                    <Instagram size={20} />
+                  </FooterSocialLink>
+                  <FooterSocialLink
+                    href="mailto:philipstubbs13@gmail.com"
+                    label="Email"
+                  >
+                    <Mail size={20} />
+                  </FooterSocialLink>
+                </div>
+              </div>
+              <div>
+                <h4 className="text-md font-semibold mb-4">Developer</h4>
+                <div className="flex space-x-4">
+                  <ul className="space-y-2">
+                    <li>
+                      <a
+                        className="text-sm hover:underline"
+                        href="https://github.com/philipstubbs13/runner-pulse"
+                        target="_blank"
+                      >
+                        GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-sm hover:underline"
+                        href="https://66e7fab26977c0410ed6ca2b-ymdpnwigph.chromatic.com/"
+                        target="_blank"
+                      >
+                        Storybook (Style Guide)
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

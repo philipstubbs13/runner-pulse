@@ -12,6 +12,11 @@ export default async function RaceDistances() {
   const session = await getSessionUser();
   const distances = await db.raceDistance.findMany({
     where: { userId: session?.userId },
+    orderBy: [
+      {
+        distance: "asc",
+      },
+    ],
   });
 
   return (

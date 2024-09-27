@@ -15,9 +15,19 @@ export const PersonalResults = async () => {
   });
   const distances = await db.raceDistance.findMany({
     where: { userId: sessionUser?.userId },
+    orderBy: [
+      {
+        distance: "asc",
+      },
+    ],
   });
   const locations = await db.raceLocation.findMany({
     where: { userId: sessionUser?.userId },
+    orderBy: [
+      {
+        city: "asc",
+      },
+    ],
   });
   const hasResults = results.length > 0;
 

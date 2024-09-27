@@ -47,7 +47,7 @@ export const EditRaceLocationDialog = (props: IProps) => {
       titleColor={"orange"}
       trigger={
         <Button size="sm">
-          <Pencil className="h-4 w-4" />
+          <Pencil className="h-4 w-4" data-testid="edit-icon" />
         </Button>
       }
     >
@@ -59,7 +59,12 @@ export const EditRaceLocationDialog = (props: IProps) => {
           placeholder="City"
           required={true}
         />
-        <Select name="state" required={true} defaultValue={props.state}>
+        <Select
+          name="state"
+          required={true}
+          defaultValue={props.state}
+          data-testid="state-select"
+        >
           <SelectTrigger className="border-blue-300 focus:border-blue-500">
             <SelectValue
               placeholder="Select State"
