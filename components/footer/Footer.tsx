@@ -70,7 +70,7 @@ export const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-1 gap-8">
               <div>
                 <h4 className="text-md font-semibold mb-4">Connect With Me</h4>
                 <div className="flex space-x-4">

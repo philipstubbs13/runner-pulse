@@ -13,6 +13,11 @@ export default async function Settings() {
   const sessionUser = await getSessionUser();
   const photos = await db.racePhoto.findMany({
     where: { userId: sessionUser?.userId },
+    orderBy: [
+      {
+        createdAt: "desc",
+      },
+    ],
   });
   const hasPhotos = photos.length > 0;
 

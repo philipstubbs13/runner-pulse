@@ -3,7 +3,7 @@ import { TabCard } from "@/components/tab-card/TabCard";
 import { Tabs } from "@/components/tabs/Tabs";
 import { Tab } from "@/components/tabs/Tabs.constants";
 
-export default async function ResultsPage() {
+export default function ResultsPage() {
   return (
     <Tabs>
       <TabCard tab={Tab.Results}>

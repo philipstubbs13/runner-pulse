@@ -13,21 +13,17 @@ export const PhotoGallery = async () => {
   const sessionUser = await getSessionUser();
   const photos = await db.racePhoto.findMany({
     where: { userId: sessionUser?.userId },
+    orderBy: [
+      {
+        createdAt: "desc",
+      },
+    ],
   });
   const hasPhotos = photos.length > 0;
 
   return (
     <div className="space-y-4">
-      {hasPhotos && <PhotoList photos={photos} />}
-      {!hasPhotos && (
-        <NoResults
-          Icon={Camera}
-          description=" Upload your first running photo to start your gallery!"
-          tab={Tab.Gallery}
-          title="No photos yet"
-        />
-      )}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 mt-4">
         <AddPhotoDialog />
         <Link href={Routes.ManagePhotos}>
           <Button
@@ -39,6 +35,15 @@ export const PhotoGallery = async () => {
           </Button>
         </Link>
       </div>
+      {hasPhotos && <PhotoList photos={photos} />}
+      {!hasPhotos && (
+        <NoResults
+          Icon={Camera}
+          description=" Upload your first running photo to start your gallery!"
+          tab={Tab.Gallery}
+          title="No photos yet"
+        />
+      )}
     </div>
   );
 };
